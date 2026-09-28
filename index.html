@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bursa Nilüfer Rotary Kulübü</title>
+  <meta name="description" content="Bursa Nilüfer Rotary Kulübü: Boyun Kadar Kitap Oku projesi, RYLA konferansı, üniversite öğrenci bursları ve kulüp takvimi. Rotary International Bölge 2440.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Bursa Nilüfer Rotary Kulübü">
+  <meta property="og:description" content="Boyun Kadar Kitap Oku, RYLA konferansı ve üniversite öğrenci bursları. Rotary International Bölge 2440.">
+  <meta property="og:image" content="ryla-2026.jpg">
+  <meta name="theme-color" content="#17458f">
+  <style>
+    :root {
+      color-scheme: light;
+      --blue: #17458f;   /* Rotary royal blue */
+      --azure: #0067c8;  /* Rotary azure */
+      --gold: #f7a81b;   /* Rotary gold */
+      --ink: #0f1f3d;
+      --muted: #56627a;
+      --line: #dbe1ea;
+      --card: rgba(255, 255, 255, 0.85);
+      --bg: #f6f8fc;
+      --page: min(72rem, 100% - 3rem);
+    }
+
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg) radial-gradient(rgba(23, 69, 143, 0.07) 1px, transparent 1px) 0 0 / 22px 22px;
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--ink);
+    }
+
+    /* Soft blue and gold glows behind the content */
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      z-index: -1;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    body::before {
+      top: -30vmax;
+      right: -25vmax;
+      width: 75vmax;
+      height: 75vmax;
+      background: radial-gradient(closest-side, rgba(0, 103, 200, 0.22), transparent);
+    }
+    body::after {
+      bottom: -30vmax;
+      left: -25vmax;
+      width: 65vmax;
+      height: 65vmax;
+      background: radial-gradient(closest-side, rgba(247, 168, 27, 0.26), transparent);
+    }
+
+    a { color: var(--blue); }
+    :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+
+    /* Top bar */
+    .top {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(246, 248, 252, 0.88);
+      border-bottom: 1px solid rgba(23, 69, 143, 0.08);
+      backdrop-filter: blur(10px);
+    }
+    .top-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem 1.5rem;
+      width: var(--page);
+      margin-inline: auto;
+      padding: 0.75rem 0;
+    }
+    .top img { display: block; width: auto; height: 2.25rem; }
+    .top nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; margin-left: auto; }
+    .top nav a {
+      padding: 0.25rem 0;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+    }
+    .top nav a:hover { color: var(--blue); border-bottom-color: var(--gold); }
+
+    section { width: var(--page); margin-inline: auto; padding-block: clamp(2.5rem, 6vh, 4.5rem); }
+    .section-head { max-width: 46rem; }
+    h2 {
+      margin: 0;
+      font-size: clamp(1.625rem, 1.2rem + 1.6vw, 2.25rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--blue);
+      text-wrap: balance;
+    }
+    .section-head p { margin: 0.5rem 0 0; color: var(--muted); }
+
+    /* Hero */
+    .hero { padding-top: clamp(2.5rem, 6vh, 4rem); }
+    .accent { width: 4.5rem; height: 0.375rem; margin-bottom: 1.25rem; border-radius: 999px; background: var(--gold); }
+    h1 {
+      max-width: 16ch;
+      margin: 0;
+      font-size: clamp(2.5rem, 1.6rem + 3.6vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      color: var(--blue);
+      text-wrap: balance;
+    }
+    .motto {
+      margin: 1rem 0 0;
+      font-size: clamp(1.125rem, 1rem + 0.6vw, 1.5rem);
+      font-weight: 600;
+    }
+    .lead { max-width: 46rem; margin: 0.75rem 0 0; color: var(--muted); }
+
+    .badges { display: flex; flex-wrap: wrap; gap: 0.625rem; margin-top: 1.5rem; padding: 0; list-style: none; }
+    .badges li {
+      padding: 0.5rem 0.875rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      background: var(--card);
+      border: 1px solid rgba(23, 69, 143, 0.12);
+      border-radius: 999px;
+    }
+    .badges strong { color: var(--blue); }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.75rem; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.5rem;
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      background: var(--blue);
+      border: 1px solid var(--blue);
+      border-radius: 999px;
+      box-shadow: 0 10px 24px -10px rgba(23, 69, 143, 0.6);
+      transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .btn span { transition: transform 0.2s; }
+    .btn:hover { background: var(--azure); border-color: var(--azure); }
+    .btn:hover span { transform: translateX(3px); }
+    .btn.ghost { color: var(--blue); background: rgba(255, 255, 255, 0.8); box-shadow: none; }
+    .btn.ghost:hover { background: #fff; border-color: var(--azure); color: var(--azure); }
+
+    /* Cards */
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1.25rem; margin-top: 1.75rem; }
+    .card {
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem;
+      background: var(--card);
+      border: 1px solid rgba(23, 69, 143, 0.1);
+      border-radius: 1.25rem;
+      box-shadow: 0 1px 2px rgba(15, 31, 61, 0.04), 0 16px 36px -16px rgba(15, 31, 61, 0.2);
+    }
+    .card h3 { margin: 0.75rem 0 0; font-size: 1.1875rem; color: var(--blue); }
+    .card p { margin: 0.5rem 0 1.25rem; color: var(--muted); font-size: 0.9375rem; }
+    .card .btn { margin-top: auto; align-self: flex-start; padding: 0.7rem 1.25rem; font-size: 0.9375rem; }
+    .card-icon {
+      display: grid;
+      place-items: center;
+      width: 2.75rem;
+      height: 2.75rem;
+      font-size: 1.375rem;
+      background: rgba(247, 168, 27, 0.18);
+      border-radius: 0.875rem;
+    }
+
+    /* Calendar */
+    .calendar-wrap { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 1.25rem; margin-top: 1.75rem; align-items: start; }
+    .panel {
+      padding: 1.25rem;
+      background: var(--card);
+      border: 1px solid rgba(23, 69, 143, 0.1);
+      border-radius: 1.25rem;
+      box-shadow: 0 1px 2px rgba(15, 31, 61, 0.04), 0 16px 36px -16px rgba(15, 31, 61, 0.2);
+    }
+    .cal-head { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; }
+    .cal-month { flex: 1; margin: 0; font-size: 1.125rem; font-weight: 700; color: var(--blue); }
+    .cal-btn {
+      display: grid;
+      place-items: center;
+      width: 2.25rem;
+      height: 2.25rem;
+      font: inherit;
+      font-size: 1rem;
+      color: var(--blue);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 0.75rem;
+      cursor: pointer;
+    }
+    .cal-btn.wide { width: auto; padding-inline: 0.75rem; font-size: 0.875rem; font-weight: 600; }
+    .cal-btn:hover:not(:disabled) { border-color: var(--azure); color: var(--azure); }
+    .cal-btn:disabled { opacity: 0.4; cursor: default; }
+
+    .cal-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 0.25rem; }
+    .cal-grid .dow { padding-bottom: 0.375rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); text-align: center; }
+    .day {
+      position: relative;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      padding: 0;
+      font: inherit;
+      font-size: 0.9375rem;
+      font-variant-numeric: tabular-nums;
+      color: var(--ink);
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 0.75rem;
+      cursor: default;
+    }
+    .day.other { color: #aab3c2; }
+    .day.today { border-color: var(--gold); font-weight: 700; }
+    .day.has-event { background: rgba(0, 103, 200, 0.08); border-color: rgba(0, 103, 200, 0.2); font-weight: 700; color: var(--blue); cursor: pointer; }
+    .day.has-event:hover { background: rgba(0, 103, 200, 0.16); }
+    .day.selected { background: var(--blue); border-color: var(--blue); color: #fff; }
+    .day .dot { position: absolute; bottom: 0.3rem; width: 0.3rem; height: 0.3rem; border-radius: 50%; background: var(--azure); }
+    .day.selected .dot { background: var(--gold); }
+
+    .day-detail { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+    .day-detail h3 { margin: 0 0 0.5rem; font-size: 0.9375rem; color: var(--blue); }
+    .day-detail p { margin: 0; font-size: 0.9375rem; color: var(--muted); }
+
+    .events { margin: 0; padding: 0; list-style: none; }
+    .events li { display: flex; gap: 0.875rem; padding: 0.75rem 0; border-top: 1px solid var(--line); }
+    .events li:first-child { border-top: 0; padding-top: 0; }
+    .events .date {
+      flex: none;
+      display: grid;
+      place-items: center;
+      width: 3.25rem;
+      padding: 0.375rem 0;
+      background: rgba(23, 69, 143, 0.08);
+      border-radius: 0.75rem;
+      line-height: 1.1;
+    }
+    .events .date b { font-size: 1.125rem; color: var(--blue); }
+    .events .date span { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+    .events .what { min-width: 0; }
+    .events .what strong { display: block; font-size: 0.9375rem; overflow-wrap: anywhere; }
+    .events .what span { font-size: 0.8125rem; color: var(--muted); }
+    .cal-note { margin: 1rem 0 0; font-size: 0.8125rem; color: var(--muted); }
+    .cal-note a { font-weight: 600; }
+
+    /* Gallery */
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 0.875rem; margin-top: 1.75rem; }
+    .gallery a {
+      display: block;
+      overflow: hidden;
+      border-radius: 1rem;
+      box-shadow: 0 10px 30px -14px rgba(15, 31, 61, 0.45);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .gallery img { display: block; width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+    .gallery a:hover { transform: translateY(-3px); box-shadow: 0 16px 36px -16px rgba(15, 31, 61, 0.5); }
+
+    /* Footer */
+    footer {
+      margin-top: clamp(2rem, 5vh, 3.5rem);
+      background: rgba(255, 255, 255, 0.7);
+      border-top: 1px solid rgba(23, 69, 143, 0.1);
+    }
+    .foot {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+      gap: 1.5rem;
+      width: var(--page);
+      margin-inline: auto;
+      padding-block: 2rem;
+      font-size: 0.9375rem;
+      color: var(--muted);
+    }
+    .foot img { display: block; width: auto; height: 3rem; margin-bottom: 0.75rem; }
+    .foot h3 { margin: 0 0 0.375rem; font-size: 0.875rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); }
+    .foot a { font-weight: 600; text-decoration: none; overflow-wrap: anywhere; }
+    .foot a:hover { text-decoration: underline; }
+    .foot p { margin: 0 0 0.375rem; }
+
+    @media (max-width: 60rem) {
+      .calendar-wrap { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 40rem) {
+      .top nav { width: 100%; margin-left: 0; gap: 0.25rem 1rem; }
+      .btn { padding: 0.8rem 1.25rem; font-size: 1rem; }
+      .day { font-size: 0.8125rem; border-radius: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="top-inner">
+      <img src="RotaryMBS-Simple_CMYK-C.png" alt="Rotary" width="1774" height="667">
+      <nav aria-label="Sayfa içi bağlantılar">
+        <a href="#projeler">Projeler</a>
+        <a href="#takvim">Takvim</a>
+        <a href="#fotograflar">Fotoğraflar</a>
+        <a href="#iletisim">İletişim</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="accent" aria-hidden="true"></div>
+      <h1>Bursa Nilüfer Rotary Kulübü</h1>
+      <p class="motto">Kendinden Önce Hizmet</p>
+      <p class="lead">Bursa'da eğitim, gençlik ve toplum hizmeti projeleri yürütüyoruz. Üniversite öğrencilerine burs veriyor, genç liderler için RYLA konferansı düzenliyor ve her hafta kulüp toplantılarında bir araya geliyoruz.</p>
+
+      <ul class="badges">
+        <li>Rotary International <strong>Bölge 2440</strong></li>
+      </ul>
+    </section>
+
+    <section id="projeler" aria-labelledby="projeler-baslik">
+      <div class="section-head">
+        <h2 id="projeler-baslik">Projelerimiz</h2>
+        <p>Kulübümüzün sürdürdüğü başlıca çalışmalar ve başvuru sayfaları.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">📚</div>
+          <h3>Boyun Kadar Kitap Oku</h3>
+          <p>Nilüfer Belediyesi ile birlikte yürüttüğümüz okuma alışkanlığı projesi. Nilüfer'deki devlet okullarında okuyan 2-8. sınıf öğrencileri kütüphanelerden aldıkları kitapları okuyup özetliyor; dönem sonunda “Okuma Şampiyonu” olan öğrenciler ödüllendiriliyor.</p>
+          <a class="btn" href="https://www.boyunkadarkitapoku.org" target="_blank" rel="noopener">Proje sayfası <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">🌱</div>
+          <h3>RYLA: Geleceğin Gıdası</h3>
+          <p>Rotary'nin gençlik liderliği programı RYLA kapsamında düzenlediğimiz konferans: 7-8 Kasım 2026, Euro Park Otel, Bursa.</p>
+          <a class="btn" href="RYLA/">RYLA sayfası <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">🎓</div>
+          <h3>Üniversite Öğrenci Bursları</h3>
+          <p>25 seneyi aşkın süredir üniversite öğrencilerinin eğitimine destek oluyoruz. Başvuru ve belge yükleme işlemleri burs sitemiz üzerinden yapılır.</p>
+          <a class="btn" href="https://niluferrotaryburs.com/">Burs sayfası <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section id="takvim" aria-labelledby="takvim-baslik">
+      <div class="section-head">
+        <h2 id="takvim-baslik">Kulüp Takvimi</h2>
+        <p>Toplantılarımız, bölge etkinliklerimiz ve projelerimiz.</p>
+      </div>
+
+      <div class="calendar-wrap">
+        <div class="panel">
+          <div class="cal-head">
+            <h3 class="cal-month" id="cal-month" aria-live="polite">Takvim yükleniyor…</h3>
+            <button class="cal-btn wide" type="button" id="cal-today">Bugün</button>
+            <button class="cal-btn" type="button" id="cal-prev" aria-label="Önceki ay">‹</button>
+            <button class="cal-btn" type="button" id="cal-next" aria-label="Sonraki ay">›</button>
+          </div>
+          <div class="cal-grid" id="cal-grid" role="grid" aria-labelledby="cal-month"></div>
+          <div class="day-detail" id="cal-detail" aria-live="polite">
+            <p>Etkinlik olan günler vurgulanmıştır; ayrıntı için bir güne tıklayın.</p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3 class="cal-month" style="margin-bottom: 1rem;">Yaklaşan Etkinlikler</h3>
+          <ul class="events" id="cal-upcoming">
+            <li><span class="what">Yükleniyor…</span></li>
+          </ul>
+          <p class="cal-note">Takvimi kendi uygulamanıza eklemek için <a id="cal-subscribe" href="https://calendar.google.com/calendar/ical/f244980d655efe355f38fa85b9d95a9f77b81967e401ebfb400a94d5beaba373%40group.calendar.google.com/public/basic.ics">takvim bağlantısını</a> kullanabilirsiniz.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="fotograflar" aria-labelledby="fotograflar-baslik">
+      <div class="section-head">
+        <h2 id="fotograflar-baslik">Fotoğraflar</h2>
+        <p>Kulübümüzün Instagram hesabından kareler. Fotoğrafa tıklayarak ilgili gönderiye gidebilirsiniz.</p>
+      </div>
+
+      <div class="gallery">
+        <a href="https://www.instagram.com/niluferrotary/p/Dds8fWyo7Q0/" target="_blank" rel="noopener"><img src="foto/1.jpg" alt="Kulüp etkinliğinden bir kare, Eylül 2026" width="640" height="640" loading="lazy"></a>
+        <a href="https://www.instagram.com/niluferrotary/p/DanSAbriPOH/" target="_blank" rel="noopener"><img src="foto/2.jpg" alt="Kulüp etkinliğinden bir kare, Temmuz 2026" width="640" height="615" loading="lazy"></a>
+        <a href="https://www.instagram.com/niluferrotary/p/DWhUOTAiAs_/" target="_blank" rel="noopener"><img src="foto/3.jpg" alt="Kulüp etkinliğinden bir kare, Mart 2026" width="640" height="360" loading="lazy"></a>
+        <a href="https://www.instagram.com/niluferrotary/p/DUjN0o-iB7t/" target="_blank" rel="noopener"><img src="foto/4.jpg" alt="Kulüp etkinliğinden bir kare, Şubat 2026" width="640" height="480" loading="lazy"></a>
+        <a href="https://www.instagram.com/niluferrotary/p/DLJ-nEaCc4_/" target="_blank" rel="noopener"><img src="foto/5.jpg" alt="Kulüp etkinliğinden bir kare, Haziran 2025" width="640" height="360" loading="lazy"></a>
+        <a href="https://www.instagram.com/niluferrotary/p/DLJ-WipCd28/" target="_blank" rel="noopener"><img src="foto/6.jpg" alt="Kulüp etkinliğinden bir kare, Haziran 2025" width="640" height="360" loading="lazy"></a>
+      </div>
+
+      <div class="actions">
+        <a class="btn ghost" href="https://www.instagram.com/niluferrotary/" target="_blank" rel="noopener">Instagram'da takip edin <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="iletisim">
+    <div class="foot">
+      <div>
+        <img src="RotaryMBS-Simple_CMYK-C.png" alt="Rotary" width="1774" height="667">
+        <p>Bursa Nilüfer Rotary Kulübü Derneği</p>
+        <p>Rotary International Bölge 2440</p>
+      </div>
+      <div>
+        <h3>İletişim</h3>
+        <p><a href="mailto:nilufer@niluferrotary.club">nilufer@niluferrotary.club</a></p>
+        <p>Demirtaşpaşa Mah. İnönü Cad. No: 78<br>İç Kapı No: 3, Osmangazi/Bursa</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // The calendar reads events.json, which a scheduled GitHub Action refreshes from
+    // the club's public Google Calendar (that feed sends no CORS header, so the page
+    // cannot read it directly).
+    (() => {
+      const MONTHS = ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'];
+      const DAYS = ['Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt', 'Paz'];
+      const ZONE = 'Europe/Istanbul';
+      const dayFormat = new Intl.DateTimeFormat('en-CA', { timeZone: ZONE, year: 'numeric', month: '2-digit', day: '2-digit' });
+      const timeFormat = new Intl.DateTimeFormat('tr-TR', { timeZone: ZONE, hour: '2-digit', minute: '2-digit' });
+
+      const grid = document.getElementById('cal-grid');
+      const label = document.getElementById('cal-month');
+      const detail = document.getElementById('cal-detail');
+      const upcoming = document.getElementById('cal-upcoming');
+      const prev = document.getElementById('cal-prev');
+      const next = document.getElementById('cal-next');
+      const todayButton = document.getElementById('cal-today');
+
+      const todayKey = dayFormat.format(new Date());
+      const byDay = new Map();
+      let events = [];
+      let shown = new Date(`${todayKey}T12:00:00`);
+      let selected = '';
+
+      const keyOf = date => `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+      const prettyDay = key => {
+        const [year, month, day] = key.split('-').map(Number);
+        return `${day} ${MONTHS[month - 1]} ${year}`;
+      };
+      // All-day events carry a plain date; timed ones an instant that has to be read in Istanbul time
+      const dayKeyOf = event => event.allDay ? event.start.slice(0, 10) : dayFormat.format(new Date(event.start));
+      const timeOf = event => event.allDay ? 'Tüm gün' : timeFormat.format(new Date(event.start));
+
+      const renderMonth = () => {
+        const year = shown.getFullYear();
+        const month = shown.getMonth();
+        label.textContent = `${MONTHS[month]} ${year}`;
+        grid.replaceChildren();
+        DAYS.forEach(name => {
+          const cell = document.createElement('div');
+          cell.className = 'dow';
+          cell.textContent = name;
+          grid.append(cell);
+        });
+
+        const first = new Date(year, month, 1);
+        const start = new Date(first);
+        start.setDate(first.getDate() - ((first.getDay() + 6) % 7)); // weeks start on Monday
+        for (let i = 0; i < 42; i++) {
+          const date = new Date(start);
+          date.setDate(start.getDate() + i);
+          const key = keyOf(date);
+          const dayEvents = byDay.get(key) || [];
+          const cell = document.createElement(dayEvents.length ? 'button' : 'div');
+          cell.className = 'day';
+          if (date.getMonth() !== month) cell.classList.add('other');
+          if (key === todayKey) cell.classList.add('today');
+          if (key === selected) cell.classList.add('selected');
+          cell.textContent = date.getDate();
+          if (dayEvents.length) {
+            cell.type = 'button';
+            cell.classList.add('has-event');
+            cell.setAttribute('aria-label', `${prettyDay(key)}: ${dayEvents.length} etkinlik`);
+            const dot = document.createElement('span');
+            dot.className = 'dot';
+            dot.setAttribute('aria-hidden', 'true');
+            cell.append(dot);
+            cell.addEventListener('click', () => { selected = key; renderMonth(); renderDetail(); });
+          }
+          grid.append(cell);
+        }
+        const firstKey = events.length ? dayKeyOf(events[0]).slice(0, 7) : '';
+        const lastKey = events.length ? dayKeyOf(events[events.length - 1]).slice(0, 7) : '';
+        const thisKey = `${year}-${String(month + 1).padStart(2, '0')}`;
+        prev.disabled = Boolean(firstKey) && thisKey <= firstKey;
+        next.disabled = Boolean(lastKey) && thisKey >= lastKey;
+      };
+
+      const renderDetail = () => {
+        const dayEvents = byDay.get(selected) || [];
+        detail.replaceChildren();
+        if (!dayEvents.length) {
+          const note = document.createElement('p');
+          note.textContent = 'Etkinlik olan günler vurgulanmıştır; ayrıntı için bir güne tıklayın.';
+          detail.append(note);
+          return;
+        }
+        const heading = document.createElement('h3');
+        heading.textContent = prettyDay(selected);
+        const list = document.createElement('ul');
+        list.className = 'events';
+        dayEvents.forEach(event => {
+          const item = document.createElement('li');
+          const what = document.createElement('div');
+          what.className = 'what';
+          const title = document.createElement('strong');
+          title.textContent = event.summary || 'Etkinlik';
+          const meta = document.createElement('span');
+          meta.textContent = [timeOf(event), event.location].filter(Boolean).join(' · ');
+          what.append(title, meta);
+          item.append(what);
+          list.append(item);
+        });
+        detail.append(heading, list);
+      };
+
+      const renderUpcoming = () => {
+        const now = new Date();
+        const nextUp = events.filter(event => new Date(event.allDay ? `${event.start}T23:59:59` : event.end || event.start) >= now).slice(0, 6);
+        upcoming.replaceChildren();
+        if (!nextUp.length) {
+          const item = document.createElement('li');
+          item.textContent = 'Planlanmış yeni etkinlik bulunmuyor.';
+          upcoming.append(item);
+          return;
+        }
+        nextUp.forEach(event => {
+          const key = dayKeyOf(event);
+          const [, month, day] = key.split('-').map(Number);
+          const item = document.createElement('li');
+          const date = document.createElement('div');
+          date.className = 'date';
+          const number = document.createElement('b');
+          number.textContent = day;
+          const monthName = document.createElement('span');
+          monthName.textContent = MONTHS[month - 1].slice(0, 3);
+          date.append(number, monthName);
+          const what = document.createElement('div');
+          what.className = 'what';
+          const title = document.createElement('strong');
+          title.textContent = event.summary || 'Etkinlik';
+          const meta = document.createElement('span');
+          meta.textContent = [timeOf(event), event.location].filter(Boolean).join(' · ');
+          what.append(title, meta);
+          item.append(date, what);
+          upcoming.append(item);
+        });
+      };
+
+      const failed = () => {
+        label.textContent = 'Takvim';
+        grid.replaceChildren();
+        detail.replaceChildren();
+        upcoming.replaceChildren();
+        const note = document.createElement('li');
+        note.innerHTML = 'Takvim şu anda yüklenemedi. <a href="https://calendar.google.com/calendar/embed?src=f244980d655efe355f38fa85b9d95a9f77b81967e401ebfb400a94d5beaba373%40group.calendar.google.com&ctz=Europe%2FIstanbul" target="_blank" rel="noopener">Google Takvim üzerinden görüntüleyin</a>.';
+        upcoming.append(note);
+      };
+
+      fetch('events.json', { cache: 'no-cache' })
+        .then(response => response.ok ? response.json() : Promise.reject(new Error(response.status)))
+        .then(data => {
+          events = (data.events || []).slice().sort((a, b) => a.start.localeCompare(b.start));
+          if (!events.length) return failed();
+          events.forEach(event => {
+            const key = dayKeyOf(event);
+            if (!byDay.has(key)) byDay.set(key, []);
+            byDay.get(key).push(event);
+          });
+          // Open on the month of the next event when this month has none
+          const upcomingEvent = events.find(event => dayKeyOf(event) >= todayKey);
+          const openKey = byDay.has(todayKey) || !upcomingEvent ? todayKey : dayKeyOf(upcomingEvent);
+          shown = new Date(`${openKey}T12:00:00`);
+          selected = byDay.has(openKey) ? openKey : '';
+          renderMonth();
+          renderDetail();
+          renderUpcoming();
+        })
+        .catch(failed);
+
+      prev.addEventListener('click', () => { shown.setMonth(shown.getMonth() - 1); renderMonth(); });
+      next.addEventListener('click', () => { shown.setMonth(shown.getMonth() + 1); renderMonth(); });
+      todayButton.addEventListener('click', () => { shown = new Date(`${todayKey}T12:00:00`); selected = byDay.has(todayKey) ? todayKey : selected; renderMonth(); renderDetail(); });
+    })();
+  </script>
+</body>
+</html>

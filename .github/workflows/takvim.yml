@@ -1,0 +1,29 @@
+name: Takvimi güncelle
+
+# Google's iCal feed has no CORS header, so the page cannot read it directly.
+# This job fetches it and commits events.json, which the calendar on the site reads.
+on:
+  schedule:
+    - cron: '17 3,15 * * *'
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Takvimi indir
+        run: python3 scripts/ics_to_json.py
+      - name: Değişiklik varsa kaydet
+        run: |
+          if [ -n "$(git status --porcelain events.json)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add events.json
+            git commit -m "Takvim güncellendi"
+            git push
+          else
+            echo "Takvimde değişiklik yok."
+          fi

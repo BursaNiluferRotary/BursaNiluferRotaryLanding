@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bursa Nilüfer Rotary Kulübü | RYLA Kayıt Formu</title>
+  <meta name="description" content="RYLA “Geleceğin Gıdası” konferansı kayıt formu: 7-8 Kasım 2026, Euro Park Otel, Bursa.">
+  <style>
+    /* Same light theme as the landing page (index.html) */
+    :root {
+      color-scheme: light;
+      --bg: #f6f8fc;
+      --text: #0f1f3d;
+      --muted: #56627a;
+      --border: #cfd6e0;
+      --accent: #17458f;  /* Rotary royal blue */
+      --azure: #0067c8;   /* Rotary azure */
+      --on-accent: #ffffff;
+      --gold: #f7a81b;    /* Rotary gold */
+      --err: #b3261e;
+      --err-bg: #fce8e6;
+    }
+
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+
+    html {
+      background: var(--bg) radial-gradient(rgba(23, 69, 143, 0.07) 1px, transparent 1px) 0 0 / 22px 22px;
+    }
+
+    body {
+      margin: 0;
+      font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+    }
+
+    /* Soft blue and gold glows behind the content */
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      z-index: -1;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    body::before {
+      top: -30vmax;
+      right: -25vmax;
+      width: 75vmax;
+      height: 75vmax;
+      background: radial-gradient(closest-side, rgba(0, 103, 200, 0.22), transparent);
+    }
+    body::after {
+      bottom: -30vmax;
+      left: -25vmax;
+      width: 65vmax;
+      height: 65vmax;
+      background: radial-gradient(closest-side, rgba(247, 168, 27, 0.26), transparent);
+    }
+
+    main { max-width: 44rem; margin: 0 auto; padding: 3.5rem 1.25rem 2.5rem; }
+
+    .accent { width: 4.5rem; height: 0.375rem; margin-bottom: 1.25rem; border-radius: 999px; background: var(--gold); }
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 1.4rem + 2.4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--accent);
+      text-wrap: balance;
+    }
+    .subtitle { margin: 0.75rem 0 0; font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem); font-weight: 500; }
+    .event { margin: 0.25rem 0 1.25rem; font-weight: 600; color: var(--accent); }
+    .intro { margin: 0 0 1.25rem; color: var(--muted); }
+
+    /* Payment details, taken from the club's registration form */
+    .payment {
+      margin: 0 0 2rem;
+      padding: 1.25rem 1.375rem;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(23, 69, 143, 0.1);
+      border-radius: 1rem;
+      box-shadow: 0 1px 2px rgba(15, 31, 61, 0.04), 0 16px 36px -16px rgba(15, 31, 61, 0.2);
+    }
+    .payment h2 { margin: 0 0 0.5rem; font-size: 1.0625rem; color: var(--accent); }
+    .payment p { margin: 0 0 0.5rem; font-size: 0.9375rem; }
+    .payment p:last-child { margin-bottom: 0; }
+    .payment .iban { font-weight: 700; letter-spacing: 0.01em; overflow-wrap: anywhere; }
+    .payment .hint { color: var(--muted); font-size: 0.875rem; }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem 1rem;
+      padding: 1.75rem;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(23, 69, 143, 0.1);
+      border-radius: 1.25rem;
+      box-shadow: 0 1px 2px rgba(15, 31, 61, 0.04), 0 16px 36px -16px rgba(15, 31, 61, 0.2);
+    }
+    form::before {
+      content: "";
+      grid-column: 1 / -1;
+      width: 2.5rem;
+      height: 0.25rem;
+      margin-bottom: -0.25rem;
+      border-radius: 999px;
+      background: var(--gold);
+    }
+    .full { grid-column: 1 / -1; }
+
+    fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
+    label, legend { display: block; margin-bottom: 0.375rem; padding: 0; font-weight: 600; }
+    .optional { font-weight: 400; color: var(--muted); }
+
+    input:not([type="radio"], [type="checkbox"], [type="file"]), select, textarea {
+      display: block;
+      width: 100%;
+      padding: 0.625rem 0.75rem;
+      font: inherit;
+      color: inherit;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    textarea { min-height: 4.5rem; resize: vertical; }
+    select { text-overflow: ellipsis; }
+    input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+    input:not([type="radio"], [type="checkbox"], [type="file"]):disabled, select:disabled, textarea:disabled { opacity: 0.55; cursor: not-allowed; }
+    input:user-invalid, select:user-invalid, textarea:user-invalid, [aria-invalid="true"] { border-color: var(--err); }
+
+    .choices { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
+    .choices label { display: flex; align-items: center; gap: 0.5rem; margin: 0; font-weight: 400; }
+    .choices input { margin: 0; accent-color: var(--accent); }
+
+    .section-title { grid-column: 1 / -1; margin: 0.75rem 0 -0.5rem; font-size: 0.9375rem; font-weight: 700; color: var(--accent); }
+    .field-note { margin: 0.25rem 0 0; font-size: 0.8125rem; color: var(--muted); }
+
+    /* Each upload spans three shared rows (label, box, notes), so the pair lines up */
+    .uploads { display: grid; grid-template-columns: 1fr 1fr; column-gap: 1rem; }
+    .uploads > .field { display: grid; grid-row: span 3; grid-template-rows: subgrid; row-gap: 0; }
+    .uploads > .field > label { align-self: end; font-weight: 400; }
+    .upload-note { margin: 0; font-size: 0.875rem; color: var(--muted); }
+    .upload {
+      position: relative;
+      padding: 0.875rem 0.75rem;
+      text-align: center;
+      background: var(--bg);
+      border: 2px dashed var(--border);
+      border-radius: 12px;
+    }
+    .upload input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+    .upload:hover, .upload.dragging, .upload.has-file { border-color: var(--accent); }
+    .upload.has-file { border-style: solid; }
+    .upload:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .upload:has(input:user-invalid), .upload:has([aria-invalid="true"]) { border-color: var(--err); }
+    .upload-text { display: block; font-weight: 600; color: var(--accent); overflow-wrap: anywhere; }
+    .upload-hint { display: block; font-size: 0.875rem; color: var(--muted); }
+
+    .kvkk { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; }
+    .kvkk summary { padding: 0.75rem 1rem; font-weight: 600; cursor: pointer; }
+    .kvkk-text { padding: 0 1rem 1rem; font-size: 0.875rem; }
+    .kvkk-text h2 { margin: 1rem 0 0.25rem; font-size: 0.9375rem; }
+    .kvkk-text p, .kvkk-text ul { margin: 0 0 0.5rem; }
+    .kvkk-text ul { padding-left: 1.25rem; }
+    .kvkk-text .updated { margin: 1rem 0 0; color: var(--muted); }
+    .kvkk-text a { color: var(--accent); overflow-wrap: anywhere; }
+
+    .consent { display: flex; align-items: flex-start; gap: 0.625rem; margin: 0; font-weight: 400; }
+    .consent input { flex: none; width: 1.125rem; height: 1.125rem; margin: 0.15rem 0 0; accent-color: var(--accent); }
+
+    button {
+      grid-column: 1 / -1;
+      justify-self: start;
+      padding: 0.85rem 2.25rem;
+      font: inherit;
+      font-weight: 700;
+      color: var(--on-accent);
+      background: var(--accent);
+      border: 0;
+      border-radius: 999px;
+      box-shadow: 0 10px 24px -10px rgba(23, 69, 143, 0.6);
+      cursor: pointer;
+      transition: background-color 0.2s, box-shadow 0.2s;
+    }
+    button:hover:not(:disabled) { background: var(--azure); }
+    button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+    button:disabled { opacity: 0.6; cursor: default; box-shadow: none; }
+
+    .field-error { display: block; margin-top: 0.25rem; font-size: 0.875rem; color: var(--err); }
+
+    .notice { margin: 0; padding: 0.75rem 1rem; border-radius: 10px; }
+    .form-error { background: var(--err-bg); color: var(--err); }
+    noscript .notice { margin-bottom: 1rem; }
+
+    .brand {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem 1.5rem;
+      max-width: 44rem;
+      margin: 0 auto;
+      padding: 0 1.25rem 2.5rem;
+    }
+    .brand > a { display: inline-block; }
+    .brand > a:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+    .brand img { display: block; width: auto; height: 3.5rem; }
+
+    /* Contact stays at the bottom right, even when it wraps below the logo */
+    .contact { margin: 0 0 0 auto; font-size: 0.9375rem; color: var(--muted); text-align: right; }
+    .contact a { font-weight: 600; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; }
+    .contact a:hover { text-decoration: underline; }
+    .contact a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+
+    @media (max-width: 600px) {
+      main { padding-top: 2.5rem; }
+      form { padding: 1.25rem; }
+      form, .uploads { grid-template-columns: 1fr; }
+      button { justify-self: stretch; }
+      .brand img { height: 3rem; }
+      .contact { font-size: 0.8125rem; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="accent" aria-hidden="true"></div>
+    <h1>Bursa Nilüfer Rotary Kulübü</h1>
+    <p class="subtitle">RYLA Kayıt Formu</p>
+    <p class="event">Geleceğin Gıdası · 7-8 Kasım 2026 · Euro Park Otel, Bursa</p>
+    <p class="intro">Kaydınızın tamamlanması için aşağıdaki bilgileri eksiksiz doldurmanız, katılım bedelini yatırmanız ve banka dekontunuz ile nüfus cüzdanı fotokopinizi bu form aracılığıyla iletmeniz gerekmektedir.</p>
+
+    <!-- Bank details and fee from the club's registration form -->
+    <section class="payment" aria-labelledby="odeme-baslik">
+      <h2 id="odeme-baslik">Katılım Bedeli ve Ödeme</h2>
+      <p>Katılım bedeli, 2 kişilik odada kişi başı (tam pansiyon) <strong>7.000 TL</strong>'dir.</p>
+      <p>Havalenin yapılacağı hesap: QNB Bank – Nilüfer Rotary Kulübü Derneği<br>
+        <span class="iban">TR49 0011 1000 0000 0089 2916 18</span><br>
+        Açıklama: Ryla Katılım Bedeli Bağışı</p>
+      <p class="hint">Havaleyi yaptıktan sonra dekontun okunur bir kopyasını aşağıdaki alana yükleyin.</p>
+    </section>
+
+    <noscript><p class="notice form-error">Formu gönderebilmek için tarayıcınızda JavaScript'in açık olması gerekir.</p></noscript>
+
+    <!-- Field names follow Forminit's fi-{type}-{name} pattern. The script at the bottom enables the submit button. -->
+    <form id="ryla-form" action="https://forminit.com/f/jefbf8qktfd" method="POST" enctype="multipart/form-data">
+      <div class="field">
+        <label for="ad">Adınız</label>
+        <input id="ad" name="fi-sender-firstName" type="text" autocomplete="given-name" required>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field">
+        <label for="soyad">Soyadınız</label>
+        <input id="soyad" name="fi-sender-lastName" type="text" autocomplete="family-name" required>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field">
+        <label for="cinsiyet">Cinsiyetiniz</label>
+        <select id="cinsiyet" name="fi-select-cinsiyet" required>
+          <option value="" selected disabled>Seçiniz</option>
+          <option>Kadın</option>
+          <option>Erkek</option>
+        </select>
+        <p class="field-note">Konaklama odaları buna göre planlanır.</p>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field">
+        <label for="dogum-tarihi">Doğum Tarihiniz</label>
+        <input id="dogum-tarihi" name="fi-date-dogum_tarihi" type="date" min="1920-01-01" autocomplete="bday" required>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field">
+        <label for="kan-grubu">Kan Grubunuz</label>
+        <select id="kan-grubu" name="fi-select-kan_grubu" required>
+          <option value="" selected disabled>Seçiniz</option>
+          <option>A Rh+</option>
+          <option>A Rh−</option>
+          <option>B Rh+</option>
+          <option>B Rh−</option>
+          <option>AB Rh+</option>
+          <option>AB Rh−</option>
+          <option>0 Rh+</option>
+          <option>0 Rh−</option>
+          <option>Bilmiyorum</option>
+        </select>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <fieldset class="field">
+        <legend>Bedeniniz</legend>
+        <div class="choices">
+          <label><input type="radio" name="fi-radio-beden" value="M" required> M</label>
+          <label><input type="radio" name="fi-radio-beden" value="L" required> L</label>
+          <label><input type="radio" name="fi-radio-beden" value="XL" required> XL</label>
+          <label><input type="radio" name="fi-radio-beden" value="XXL" required> XXL</label>
+        </div>
+        <span class="field-error" hidden></span>
+      </fieldset>
+
+      <div class="field full">
+        <label for="adres">Adresiniz</label>
+        <textarea id="adres" name="fi-text-adres" rows="2" autocomplete="street-address" required></textarea>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field">
+        <label for="posta-kodu">Posta Kodu <span class="optional">(varsa)</span></label>
+        <input id="posta-kodu" name="fi-text-posta_kodu" type="text" inputmode="numeric" pattern="\d{5}" placeholder="16000" autocomplete="postal-code" data-rule="posta">
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field">
+        <label for="sehir">Şehir</label>
+        <input id="sehir" name="fi-text-sehir" type="text" autocomplete="address-level1" required>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field">
+        <label for="email">E-posta</label>
+        <input id="email" name="fi-sender-email" type="email" autocomplete="email" required>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field">
+        <label for="cep-telefonu">Cep Telefonu</label>
+        <input id="cep-telefonu" name="fi-sender-phone" type="tel" placeholder="0(5XX)XXX-XX-XX" pattern="0\(5\d{2}\)\d{3}-\d{2}-\d{2}" autocomplete="tel" required data-rule="cep">
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field full">
+        <label for="ev-telefonu">Ev Telefonu <span class="optional">(şehir kodu ile, varsa)</span></label>
+        <input id="ev-telefonu" name="fi-text-ev_telefonu" type="tel" placeholder="0(224)XXX-XX-XX" pattern="0\([2-4]\d{2}\)\d{3}-\d{2}-\d{2}" autocomplete="tel-national" data-rule="sabit">
+        <span class="field-error" hidden></span>
+      </div>
+
+      <fieldset class="field full">
+        <legend>Durumunuz</legend>
+        <div class="choices">
+          <label><input type="radio" name="fi-radio-durum" value="Öğrenci" required> Öğrenciyim</label>
+          <label><input type="radio" name="fi-radio-durum" value="Mezun" required> Mezunum</label>
+        </div>
+        <span class="field-error" hidden></span>
+      </fieldset>
+
+      <div class="field full" id="okul-alani" hidden>
+        <label for="okul">Okulunuz</label>
+        <input id="okul" name="fi-text-okul" type="text" placeholder="Okulunuzun ve bölümünüzün adı" required disabled>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field full" id="isyeri-alani" hidden>
+        <label for="isyeri">İşyeriniz</label>
+        <input id="isyeri" name="fi-text-isyeri" type="text" placeholder="Çalıştığınız kurumun adı" required disabled>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <p class="section-title">Sağlık bilgileriniz</p>
+
+      <div class="field full">
+        <label for="saglik-problemi">Sağlık Probleminiz <span class="optional">(varsa)</span></label>
+        <textarea id="saglik-problemi" name="fi-text-saglik_problemi" rows="2" aria-describedby="saglik-notu"></textarea>
+        <p class="field-note" id="saglik-notu">Konferans süresince acil bir durumda gerekli tedbirlerin alınabilmesi için sorulmaktadır.</p>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field full">
+        <label for="ilac">Sürekli Kullanmanız Gereken İlaçlar <span class="optional">(varsa)</span></label>
+        <input id="ilac" name="fi-text-kullanilan_ilac" type="text">
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field full">
+        <label for="hobiler">Hobileriniz <span class="optional">(varsa)</span></label>
+        <input id="hobiler" name="fi-text-hobiler" type="text">
+        <span class="field-error" hidden></span>
+      </div>
+
+      <p class="section-title">Yakınlarınız</p>
+
+      <div class="field">
+        <label for="baba-adi">Babanızın Adı <span class="optional">(varsa)</span></label>
+        <input id="baba-adi" name="fi-text-baba_adi" type="text" autocomplete="off">
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field">
+        <label for="baba-telefonu">Babanızın Cep Telefonu <span class="optional">(varsa)</span></label>
+        <input id="baba-telefonu" name="fi-text-baba_telefonu" type="tel" placeholder="0(5XX)XXX-XX-XX" pattern="0\(5\d{2}\)\d{3}-\d{2}-\d{2}" autocomplete="off" data-rule="cep">
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field">
+        <label for="anne-adi">Annenizin Adı <span class="optional">(varsa)</span></label>
+        <input id="anne-adi" name="fi-text-anne_adi" type="text" autocomplete="off">
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field">
+        <label for="anne-telefonu">Annenizin Cep Telefonu <span class="optional">(varsa)</span></label>
+        <input id="anne-telefonu" name="fi-text-anne_telefonu" type="tel" placeholder="0(5XX)XXX-XX-XX" pattern="0\(5\d{2}\)\d{3}-\d{2}-\d{2}" autocomplete="off" data-rule="cep">
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field">
+        <label for="acil-kisi">Acil Durumda Ulaşılacak Kişi</label>
+        <input id="acil-kisi" name="fi-text-acil_durum_kisi" type="text" placeholder="Adı soyadı ve yakınlığı" autocomplete="off" required>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field">
+        <label for="acil-telefon">Acil Durumda Ulaşılacak Telefon</label>
+        <input id="acil-telefon" name="fi-text-acil_durum_telefonu" type="tel" placeholder="0(5XX)XXX-XX-XX" pattern="0\([2-5]\d{2}\)\d{3}-\d{2}-\d{2}" autocomplete="off" required data-rule="acil">
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field">
+        <label for="rotaryen">Rotaryen Yakınınız <span class="optional">(varsa)</span></label>
+        <input id="rotaryen" name="fi-text-rotaryen_yakini" type="text" placeholder="Adı soyadı" autocomplete="off">
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field">
+        <label for="rotaryen-kulup">Rotaryen Yakınınızın Kulübü <span class="optional">(varsa)</span></label>
+        <input id="rotaryen-kulup" name="fi-text-rotaryen_yakini_kulubu" type="text" autocomplete="off">
+        <span class="field-error" hidden></span>
+      </div>
+
+      <p class="section-title">Belgeler</p>
+
+      <fieldset class="full">
+        <p class="upload-note" id="dosya-kurali">Belgeler PDF, JPG veya PNG biçiminde olmalı; her dosya en fazla 1 MB olabilir.</p>
+        <div class="uploads" style="margin-top: 0.75rem;">
+          <div class="field">
+            <label for="dekont">Banka Dekontu</label>
+            <div class="upload">
+              <input id="dekont" name="fi-file-banka_dekontu" type="file" accept=".pdf,.jpg,.jpeg,.png" required data-rule="dosya" aria-describedby="dosya-kurali dekont-bilgi">
+              <span class="upload-text" aria-hidden="true">Dosya seçin veya sürükleyin</span>
+              <span class="upload-hint" id="dekont-bilgi">Havalenin okunur bir kopyası</span>
+            </div>
+            <span class="field-error" hidden></span>
+          </div>
+          <div class="field">
+            <label for="kimlik">Nüfus Cüzdanı Fotokopisi</label>
+            <div class="upload">
+              <input id="kimlik" name="fi-file-kimlik_fotokopisi" type="file" accept=".pdf,.jpg,.jpeg,.png" required data-rule="dosya" aria-describedby="dosya-kurali kimlik-bilgi">
+              <span class="upload-text" aria-hidden="true">Dosya seçin veya sürükleyin</span>
+              <span class="upload-hint" id="kimlik-bilgi">Katılımcının kimlik belgesi</span>
+            </div>
+            <span class="field-error" hidden></span>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Before going live: have this text reviewed by someone who knows KVKK -->
+      <details class="kvkk full">
+        <summary>KVKK Aydınlatma Metni (okumak için tıklayın)</summary>
+        <div class="kvkk-text">
+          <p>Bursa Nilüfer Rotary Kulübü (“Kulüp”) olarak, 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) uyarınca veri sorumlusu sıfatıyla, RYLA kayıt formunda paylaştığınız kişisel verileri aşağıda açıklanan şekilde işliyoruz.</p>
+
+          <h2>1. Veri sorumlusu</h2>
+          <p>Bursa Nilüfer Rotary Kulübü<br>Adres: Demirtaşpaşa Mah. İnönü Cad. No: 78 İç Kapı No: 3, Osmangazi/Bursa, Türkiye<br>E-posta: <a href="mailto:komite@niluferrotaryburs.com">komite@niluferrotaryburs.com</a></p>
+
+          <h2>2. İşlenen kişisel veriler</h2>
+          <ul>
+            <li>Kimlik: adınız, soyadınız, cinsiyetiniz, doğum tarihiniz, nüfus cüzdanı fotokopiniz ve imzanız</li>
+            <li>İletişim: adresiniz, posta kodunuz, şehriniz, e-posta adresiniz, cep telefonu ve varsa ev telefonu numaranız</li>
+            <li>Eğitim ve mesleki bilgi: öğrenim gördüğünüz okul veya çalıştığınız işyeri</li>
+            <li>Sağlık (özel nitelikli kişisel veri): kan grubunuz, varsa sağlık probleminiz ve sürekli kullandığınız ilaçlar</li>
+            <li>Finans: katılım bedelini yatırdığınıza dair banka dekontu</li>
+            <li>Diğer: hobileriniz ve giysi bedeniniz</li>
+            <li>Üçüncü kişilere ait bilgiler: varsa annenizin ve babanızın adı ile cep telefonu numaraları, acil durumda ulaşılmasını istediğiniz kişinin adı ve telefon numarası, varsa Rotaryen yakınınızın adı soyadı ve kulübü</li>
+            <li>İşlem güvenliği ve teknik kayıtlar: formun gönderildiği zaman, IP adresi, tarayıcı bilgisi, yönlendiren sayfa, IP adresinden belirlenen yaklaşık konum (ülke ve şehir) ve sayfa bağlantısında yer alıyorsa kampanya parametreleri (ör. UTM)</li>
+          </ul>
+          <p>Anneniz, babanız, acil durumda ulaşılacak kişi ve Rotaryen yakınınıza ait bilgileri paylaşmadan önce bu kişileri bu metin hakkında bilgilendiriniz.</p>
+
+          <h2>3. İşleme amaçları</h2>
+          <p>Kişisel verileriniz; RYLA konferansına kaydınızın alınması, konaklama ve organizasyonun planlanması, katılım bedelinin tahsil edilmesi ve kayıt altına alınması, konferansla ilgili sizinle iletişim kurulması ve Kulübün tabi olduğu mevzuattan doğan yükümlülüklerin yerine getirilmesi amaçlarıyla işlenir. Sağlık verileriniz ise yalnızca konferans süresince acil bir sağlık durumunda gerekli tedbirlerin alınması amacıyla işlenir.</p>
+
+          <h2>4. Toplama yöntemi ve hukuki sebep</h2>
+          <p>Kişisel verileriniz bu internet sitesindeki form aracılığıyla elektronik ortamda toplanır ve KVKK'nın 5. maddesinin 2. fıkrasında yer alan (c) bir sözleşmenin kurulması veya ifasıyla doğrudan doğruya ilgili olması, (ç) veri sorumlusunun hukuki yükümlülüğünü yerine getirebilmesi için zorunlu olması ve (f) temel hak ve özgürlüklerinize zarar vermemek kaydıyla Kulübün meşru menfaatleri için zorunlu olması hukuki sebeplerine dayanılarak işlenir. Özel nitelikli kişisel veri olan sağlık verilerinizin işlenmesi KVKK'nın 6. maddesinin 3. fıkrası, verilerinizin yurt dışına aktarılması ise KVKK'nın 9. maddesi uyarınca açık rızanıza dayanır.</p>
+
+          <h2>5. Aktarım</h2>
+          <p>Verilerinize yalnızca RYLA organizasyonunu yürüten yetkili Kulüp üyeleri erişir. Verileriniz, yukarıdaki amaçlarla sınırlı olarak konaklamanın sağlanması için etkinliğin yapılacağı otel ile, acil bir sağlık durumunda sağlık kuruluşları ve acil durumda ulaşılmasını istediğiniz kişi ile, talep edilmesi hâlinde ise yetkili kamu kurum ve kuruluşlarıyla paylaşılabilir.</p>
+
+          <h2>6. Yurt dışına aktarım</h2>
+          <p>Formda paylaştığınız bilgiler ve yüklediğiniz belgeler, form altyapısını sağlayan Forminit (UXPLUS LTD, Birleşik Krallık) aracılığıyla işlenir ve Avrupa Birliği'nde (İrlanda) bulunan Amazon Web Services sunucularında şifrelenerek saklanır; ayrıca Kulübün e-posta hesabına bildirim olarak iletilebilir. Kaydınız, organizasyonun yürütülmesi için Forminit'ten Kulübün Google hesabına da aktarılır ve bilgileriniz ile belgeleriniz Google LLC (ABD) tarafından sağlanan Google Drive ve Google E-Tablolar hizmetlerinde saklanır. Google, bu verileri ABD başta olmak üzere farklı ülkelerdeki veri merkezlerinde tutabilir. Bu internet sitesi GitHub, Inc. (ABD) altyapısında barındırılır ve GitHub, siteyi ziyaret edenlerin IP adreslerini güvenlik amacıyla kaydeder.</p>
+          <p>Bu ülkelerde kişisel verilere Türkiye'deki ile aynı düzeyde koruma sağlanmayabilir. Aktarımın muhtemel riskleri arasında yabancı kamu makamlarının verilere erişebilmesi ve haklarınızı yurt dışındaki hizmet sağlayıcılara karşı kullanmanın daha zor olması yer alır. Açık rıza vermek istemezseniz kayıt bilgilerinizi ve belgelerinizi yukarıdaki Kulüp adresine elden teslim edebilirsiniz.</p>
+
+          <h2>7. Saklama süresi</h2>
+          <p>Kişisel verileriniz, işleme amaçlarının gerektirdiği süre ve ilgili mevzuatta öngörülen saklama süreleri boyunca saklanır; bu sürelerin sonunda silinir, yok edilir veya anonim hâle getirilir.</p>
+
+          <h2>8. Haklarınız</h2>
+          <p>KVKK'nın 11. maddesi uyarınca Kulübe başvurarak aşağıdaki haklarınızı kullanabilirsiniz:</p>
+          <ul>
+            <li>Kişisel verilerinizin işlenip işlenmediğini öğrenme</li>
+            <li>İşlenmişse buna ilişkin bilgi talep etme</li>
+            <li>İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme</li>
+            <li>Yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme</li>
+            <li>Eksik veya yanlış işlenmişse düzeltilmesini isteme</li>
+            <li>KVKK'nın 7. maddesindeki şartlar çerçevesinde silinmesini veya yok edilmesini isteme</li>
+            <li>Düzeltme, silme veya yok etme işlemlerinin verilerin aktarıldığı üçüncü kişilere bildirilmesini isteme</li>
+            <li>Münhasıran otomatik sistemlerle analiz edilmesi sonucunda aleyhinize bir sonuç çıkmasına itiraz etme</li>
+            <li>Kanuna aykırı işleme nedeniyle zarara uğramanız hâlinde zararın giderilmesini talep etme</li>
+          </ul>
+          <p>Başvurularınızı yazılı olarak yukarıdaki adrese veya bu formda bildirdiğiniz e-posta adresinizden <a href="mailto:komite@niluferrotaryburs.com">komite@niluferrotaryburs.com</a> adresine iletebilirsiniz. Başvurunuz en geç otuz gün içinde ücretsiz olarak sonuçlandırılır. Açık rızanızı dilediğiniz zaman aynı yollarla geri alabilirsiniz.</p>
+
+          <p class="updated">Son güncelleme: 28 Eylül 2026</p>
+        </div>
+      </details>
+
+      <div class="field full">
+        <label class="consent">
+          <input type="checkbox" name="fi-checkbox-kvkk_saglik_riza" value="Evet" required>
+          <span>Özel nitelikli kişisel veri olan sağlık verilerimin (kan grubum, sağlık problemim ve kullandığım ilaçlar), KVKK Aydınlatma Metni'nde belirtildiği şekilde konferans süresince acil durumlarda gerekli tedbirlerin alınması amacıyla işlenmesine açık rıza veriyorum.</span>
+        </label>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field full">
+        <label class="consent">
+          <input type="checkbox" name="fi-checkbox-kvkk_acik_riza" value="Evet" required>
+          <span>KVKK Aydınlatma Metni'nde belirtilen muhtemel riskler hakkında bilgilendirilmiş olarak, formda paylaştığım kişisel verilerimin ve belgelerimin RYLA kayıt süreçlerinin yürütülmesi amacıyla başta Birleşik Krallık, Avrupa Birliği (İrlanda) ve Amerika Birleşik Devletleri olmak üzere yurt dışında bulunan hizmet sağlayıcılara aktarılmasına ve orada saklanmasına açık rıza veriyorum.</span>
+        </label>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <fieldset class="field full">
+        <legend>Kayıt Beyanı</legend>
+        <label class="consent">
+          <input type="checkbox" name="fi-checkbox-kayit_beyani" value="Evet" required data-missing="Formu gönderebilmek için kayıt beyanını onaylamanız gerekmektedir.">
+          <span>Bursa Nilüfer Rotary Kulübü tarafından düzenlenen RYLA “Geleceğin Gıdası” konferansına katılmak istiyorum. Bu form tarafımca doldurulmuş olup verdiğim bilgiler eksiksiz ve doğrudur. Katılım bedelini yatırdığımı ve dekontunu forma yüklediğimi beyan eder, konferans programına ve kurallarına uyacağımı taahhüt ederim.</span>
+        </label>
+        <span class="field-error" hidden></span>
+      </fieldset>
+
+      <div class="field full">
+        <label for="imza">Katılımcının İmzası (adınızı ve soyadınızı yukarıdaki gibi yazın)</label>
+        <input id="imza" name="fi-text-imza" type="text" autocomplete="name" required data-rule="imza">
+        <span class="field-error" hidden></span>
+      </div>
+
+      <!-- Honeypot field (Forminit rejects submissions where it has a value) -->
+      <input type="hidden" name="_gotcha" style="display:none !important">
+
+      <button type="submit" disabled>Gönder</button>
+      <p class="notice form-error full" id="gonderim-hatasi" role="alert" hidden></p>
+    </form>
+  </main>
+
+  <footer class="brand">
+    <a href="../index.html"><img src="../RotaryMBS-Simple_CMYK-C.png" alt="Rotary – ana sayfaya dön" width="1774" height="667"></a>
+    <p class="contact">İletişim: <a href="mailto:komite@niluferrotaryburs.com">komite@niluferrotaryburs.com</a></p>
+  </footer>
+
+  <script src="https://forminit.com/sdk/v1/forminit.js"></script>
+  <script>
+    (() => {
+      const FORM_ID = 'jefbf8qktfd';
+      const MAX_MB = 1;
+      const form = document.getElementById('ryla-form');
+      const phone = document.getElementById('cep-telefonu');
+      const button = form.querySelector('button[type="submit"]');
+      const formError = document.getElementById('gonderim-hatasi');
+
+      // Nobody born in the future, and the date field opens on a sensible year
+      document.getElementById('dogum-tarihi').max = new Date().toISOString().slice(0, 10);
+
+      // Formatting while typing: 0(5XX)XXX-XX-XX for mobiles, 0(224)XXX-XX-XX for landlines
+      const formatPhone = value => {
+        let d = value.replace(/\D/g, '');
+        if (d.startsWith('90') && d.length > 11) d = d.slice(2); // +90 from autofill
+        if (d && d[0] !== '0') d = '0' + d;
+        d = d.slice(0, 11);
+        return d.slice(0, 1)
+          + (d.length > 1 ? '(' + d.slice(1, 4) : '')
+          + (d.length > 4 ? ')' + d.slice(4, 7) : '')
+          + (d.length > 7 ? '-' + d.slice(7, 9) : '')
+          + (d.length > 9 ? '-' + d.slice(9, 11) : '');
+      };
+      const formatDigits = value => value.replace(/\D/g, '').slice(0, 5);
+
+      const applyFormat = (input, format) => input.addEventListener('input', () => {
+        const old = input.value;
+        const caret = input.selectionStart;
+        const value = format(old);
+        if (value === old) return;
+        input.value = value;
+        if (caret === old.length) return; // typing at the end: the caret stays at the end
+        const kept = old.slice(0, caret).replace(/[^0-9A-Z]/gi, '').length;
+        let i = 0;
+        for (let n = 0; i < value.length && n < kept; i++) if (/[0-9A-Z]/i.test(value[i])) n++;
+        input.setSelectionRange(i, i);
+      });
+      form.querySelectorAll('input[type="tel"]').forEach(input => applyFormat(input, formatPhone));
+      applyFormat(document.getElementById('posta-kodu'), formatDigits);
+
+      // File types follow each input's accept list
+      const MIME_TYPES = { pdf: 'application/pdf', jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png' };
+      const acceptedExtensions = input => input.accept.split(',').map(ext => ext.trim().replace('.', '').toLowerCase());
+      const basicFileProblem = input => {
+        const files = [...input.files];
+        const allowed = acceptedExtensions(input);
+        if (files.length > 1) return 'Lütfen tek bir dosya seçin.';
+        for (const file of files) {
+          const extension = file.name.includes('.') ? file.name.split('.').pop().toLowerCase() : '';
+          const typeOk = allowed.includes(extension) || allowed.some(ext => MIME_TYPES[ext] === file.type);
+          if (!typeOk) return 'Lütfen PDF, JPG veya PNG dosyası seçin.';
+          if (file.size > MAX_MB * 1024 * 1024) return `Her dosya en fazla ${MAX_MB} MB olabilir. Lütfen dosyayı küçültüp tekrar deneyin.`;
+        }
+        return '';
+      };
+
+      // Each chosen file is read into memory straight away. The upload then no longer depends on the
+      // phone's original (a Google Drive file, or one moved or re-downloaded later, makes the whole
+      // upload fail with "Failed to fetch"), and the first bytes show whether it really is a PDF, JPG or PNG.
+      const SIGNATURES = {
+        pdf: bytes => String.fromCharCode(...bytes.subarray(0, 1024)).includes('%PDF-'),
+        jpg: bytes => bytes[0] === 0xFF && bytes[1] === 0xD8 && bytes[2] === 0xFF,
+        png: bytes => [0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A].every((byte, i) => bytes[i] === byte)
+      };
+      const readFiles = new Map(); // input → { source, copies, problem, done }
+      const readCopies = input => {
+        const source = [...input.files];
+        const entry = { source, copies: [], problem: '' };
+        readFiles.set(input, entry);
+        if (basicFileProblem(input)) {
+          entry.done = Promise.resolve();
+          return entry;
+        }
+        const allowed = acceptedExtensions(input).map(ext => ext === 'jpeg' ? 'jpg' : ext);
+        entry.done = (async () => {
+          for (const file of source) {
+            let bytes;
+            try {
+              bytes = new Uint8Array(await file.arrayBuffer());
+            } catch {
+              entry.problem = `"${file.name}" okunamadı. Dosya Google Drive gibi bir bulut klasöründeyse önce telefonunuza indirin, sonra yeniden seçin.`;
+              return;
+            }
+            const type = bytes.length ? Object.keys(SIGNATURES).find(key => SIGNATURES[key](bytes)) : undefined;
+            if (!type || !allowed.includes(type)) {
+              entry.problem = bytes.length
+                ? `"${file.name}" geçerli bir PDF, JPG veya PNG dosyası değil; bozuk olabilir ya da bir web sayfası olarak kaydedilmiş olabilir. Lütfen belgeyi yeniden indirip seçin.`
+                : `"${file.name}" boş görünüyor. Lütfen belgeyi yeniden indirip seçin.`;
+              return;
+            }
+            // Named after its real content, so a JPG saved as ".pdf" still opens
+            const name = file.name.replace(/\.[^.]*$/, '') + '.' + type;
+            entry.copies.push(new File([bytes], name, { type: MIME_TYPES[type] }));
+          }
+        })();
+        entry.done.then(() => { if (readFiles.get(input) === entry) check(input, true); });
+        return entry;
+      };
+
+      const normalizeName = value => value.toLocaleLowerCase('tr-TR').replace(/\s+/g, ' ').trim();
+      const phoneRule = (pattern, message) => el => !el.value && !el.required ? '' : pattern.test(el.value) ? '' : message;
+
+      const rules = {
+        cep: phoneRule(/^0\(5\d{2}\)\d{3}-\d{2}-\d{2}$/, 'Lütfen cep telefonu numarasını 0(5XX)XXX-XX-XX biçiminde girin.'),
+        sabit: phoneRule(/^0\([2-4]\d{2}\)\d{3}-\d{2}-\d{2}$/, 'Lütfen ev telefonunu şehir kodu ile 0(224)XXX-XX-XX biçiminde girin.'),
+        acil: phoneRule(/^0\([2-5]\d{2}\)\d{3}-\d{2}-\d{2}$/, 'Lütfen telefon numarasını 0(5XX)XXX-XX-XX veya 0(224)XXX-XX-XX biçiminde girin.'),
+        posta: el => !el.value || /^\d{5}$/.test(el.value) ? '' : 'Posta kodu 5 haneli olmalıdır.',
+        dosya: input => basicFileProblem(input) || readFiles.get(input)?.problem || '',
+        // The typed signature must match the Adınız and Soyadınız fields (Turkish-aware)
+        imza: el => normalizeName(el.value) === normalizeName(`${document.getElementById('ad').value} ${document.getElementById('soyad').value}`)
+          ? '' : 'Lütfen imza olarak adınızı ve soyadınızı yukarıda yazdığınız şekilde yazın.'
+      };
+
+      // Turkish error messages, shown under each field and in the browser's own warning
+      const check = (el, show) => {
+        if (!el.willValidate || !el.name) return;
+        el.setCustomValidity('');
+        let message = '';
+        if (el.validity.valueMissing) {
+          message = el.dataset.missing ? el.dataset.missing
+            : el.type === 'file' ? 'Lütfen bir dosya seçin.'
+            : el.type === 'checkbox' ? 'Formu gönderebilmek için açık rıza onayı vermeniz gerekmektedir.'
+            : el.type === 'radio' || el.tagName === 'SELECT' ? 'Lütfen bir seçenek belirleyin.'
+            : el.type === 'date' ? 'Lütfen doğum tarihinizi girin.'
+            : 'Lütfen bu alanı doldurun.';
+        } else if (el.validity.typeMismatch) {
+          message = 'Lütfen geçerli bir e-posta adresi girin.';
+        } else if (el.validity.rangeOverflow || el.validity.rangeUnderflow) {
+          message = 'Lütfen geçerli bir doğum tarihi girin.';
+        } else if (rules[el.dataset.rule]) {
+          message = rules[el.dataset.rule](el);
+        }
+        el.setCustomValidity(message);
+        const box = el.closest('.field')?.querySelector('.field-error');
+        if (box && (show || !message || !box.hidden)) {
+          box.textContent = message;
+          box.hidden = !message;
+          if (message) el.setAttribute('aria-invalid', 'true');
+          else el.removeAttribute('aria-invalid');
+        }
+      };
+      const group = el => el.type === 'radio' ? form.querySelectorAll(`[name="${el.name}"]`) : [el];
+      form.addEventListener('input', e => group(e.target).forEach(el => check(el, false)));
+      form.addEventListener('change', e => group(e.target).forEach(el => check(el, true)));
+      form.addEventListener('invalid', e => check(e.target, true), true);
+      button.addEventListener('click', () => {
+        [...form.elements].forEach(el => check(el, false));
+      });
+
+      // "Öğrenciyim" asks for the school, "Mezunum" for the workplace
+      const schoolField = document.getElementById('okul-alani');
+      const workField = document.getElementById('isyeri-alani');
+      const syncStatus = () => {
+        const answer = form.querySelector('[name="fi-radio-durum"]:checked')?.value;
+        [[schoolField, 'Öğrenci'], [workField, 'Mezun']].forEach(([field, value]) => {
+          const input = field.querySelector('input');
+          const shown = answer === value;
+          field.hidden = !shown;
+          input.disabled = !shown; // disabled fields are neither validated nor sent
+          if (!shown) {
+            field.querySelector('.field-error').hidden = true;
+            input.removeAttribute('aria-invalid');
+          }
+        });
+      };
+      form.querySelectorAll('[name="fi-radio-durum"]').forEach(radio => radio.addEventListener('change', syncStatus));
+      syncStatus();
+
+      // Upload areas: show the chosen file and highlight while dragging
+      form.querySelectorAll('.upload').forEach(zone => {
+        const input = zone.querySelector('input');
+        const text = zone.querySelector('.upload-text');
+        const empty = text.textContent;
+        input.addEventListener('change', () => {
+          const files = [...input.files];
+          readCopies(input);
+          zone.classList.toggle('has-file', files.length > 0);
+          if (!files.length) { text.textContent = empty; return; }
+          const kb = files[0].size / 1024;
+          const size = kb < 1024 ? `${Math.ceil(kb)} KB` : `${(kb / 1024).toLocaleString('tr-TR', { maximumFractionDigits: 1 })} MB`;
+          text.textContent = `${files[0].name} (${size})`;
+        });
+        input.addEventListener('dragenter', () => zone.classList.add('dragging'));
+        ['dragleave', 'drop'].forEach(type => input.addEventListener(type, () => zone.classList.remove('dragging')));
+      });
+
+      // Submission through the Forminit SDK
+      const forminit = typeof Forminit === 'function' ? new Forminit() : null;
+      const serverMessages = {
+        TOO_MANY_REQUESTS: 'Kısa süre içinde birden fazla gönderim yapıldı. Lütfen 30 saniye bekleyip tekrar deneyin.',
+        FI_RULES_PHONE_INVALID: 'Telefon numarası kabul edilmedi. Lütfen kontrol edip tekrar deneyin.',
+        FI_SCHEMA_FORMAT_EMAIL: 'E-posta adresi kabul edilmedi. Lütfen kontrol edip tekrar deneyin.',
+        LIMIT_EXPIRED: 'Form şu anda yeni kayıt kabul etmiyor. Lütfen Kulüp ile iletişime geçin.',
+        FORM_DISABLED: 'Form şu anda yeni kayıt kabul etmiyor. Lütfen Kulüp ile iletişime geçin.'
+      };
+      // The SDK reports code 0 when the request got no answer at all (connection lost, unreadable file)
+      const NETWORK_MESSAGE = 'Bağlantı sırasında bir sorun oluştu ve bilgileriniz gönderilemedi. Lütfen internet bağlantınızı kontrol edip (mümkünse Wi-Fi ile) tekrar deneyin. Sorun sürerse komite@niluferrotaryburs.com adresine yazabilirsiniz.';
+      const showError = message => {
+        formError.textContent = message;
+        formError.hidden = false;
+      };
+
+      form.addEventListener('submit', async event => {
+        event.preventDefault();
+        formError.hidden = true;
+        if (!forminit) {
+          showError('Form hizmetine ulaşılamadı. Lütfen sayfayı yenileyip tekrar deneyin.');
+          return;
+        }
+
+        // Wait for files still being read, then send the in-memory copies in the form's order
+        const fileInputs = [...form.querySelectorAll('input[type="file"]')].filter(input => !input.disabled && input.files.length);
+        const entries = fileInputs.map(input => {
+          const entry = readFiles.get(input);
+          const current = entry && entry.source.length === input.files.length && entry.source.every((file, i) => file === input.files[i]);
+          return current ? entry : readCopies(input);
+        });
+        button.disabled = true;
+        button.textContent = 'Dosyalar hazırlanıyor...';
+        await Promise.all(entries.map(entry => entry.done));
+        const unreadable = fileInputs.find(input => readFiles.get(input).problem);
+        if (unreadable) {
+          button.disabled = false;
+          button.textContent = 'Gönder';
+          check(unreadable, true);
+          unreadable.focus();
+          showError('Seçtiğiniz dosyalardan biri okunamadı. Lütfen işaretli alandaki dosyayı yeniden seçin.');
+          return;
+        }
+        const copies = new Map(fileInputs.map(input => [input.name, [...readFiles.get(input).copies]]));
+        const data = new FormData();
+        for (const [name, value] of new FormData(form)) {
+          data.append(name, value instanceof File && copies.has(name) ? copies.get(name).shift() : value);
+        }
+        // Forminit validates phone numbers as E.164: 0(532)123-45-67 is sent as +905321234567
+        data.set('fi-sender-phone', '+90' + phone.value.replace(/\D/g, '').slice(1));
+        data.set('fi-text-imza', document.getElementById('imza').value.replace(/\s+/g, ' ').trim());
+        // Optional fields left blank are not sent at all
+        for (const [name, value] of [...data.entries()]) {
+          if (name !== '_gotcha' && typeof value === 'string' && !value.trim()) data.delete(name);
+        }
+
+        button.textContent = 'Gönderiliyor...';
+        let error;
+        try {
+          ({ error } = await forminit.submit(FORM_ID, data));
+        } catch (err) {
+          error = { message: err.message };
+        }
+        button.disabled = false;
+        button.textContent = 'Gönder';
+
+        if (error) {
+          const message = error.code === 0 ? NETWORK_MESSAGE : serverMessages[error.error] || 'Bilgileriniz gönderilemedi. Lütfen tekrar deneyin.';
+          showError(`${message} (Hata: ${error.message})`);
+          return;
+        }
+        // replace() keeps the submitted form out of the back history
+        location.replace('../tesekkurler.html');
+      });
+
+      button.disabled = false;
+    })();
+  </script>
+</body>
+</html>

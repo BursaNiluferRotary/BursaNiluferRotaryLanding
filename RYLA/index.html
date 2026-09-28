@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RYLA: Geleceğin Gıdası | Bursa Nilüfer Rotary Kulübü</title>
+  <meta name="description" content="RYLA “Geleceğin Gıdası” konferansı: 7-8 Kasım 2026, Euro Park Otel, Bursa. Kayıt formu ve katılım bilgileri.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="RYLA: Geleceğin Gıdası">
+  <meta property="og:description" content="7-8 Kasım 2026, Euro Park Otel, Bursa. Daha sürdürülebilir bir yarın için.">
+  <meta property="og:image" content="../ryla-2026.jpg">
+  <meta name="theme-color" content="#17458f">
+  <style>
+    /* Same light theme as the club's landing page */
+    :root {
+      color-scheme: light;
+      --blue: #17458f;   /* Rotary royal blue */
+      --azure: #0067c8;  /* Rotary azure */
+      --gold: #f7a81b;   /* Rotary gold */
+      --ink: #0f1f3d;
+      --muted: #56627a;
+      --card: rgba(255, 255, 255, 0.85);
+      --bg: #f6f8fc;
+      --page: min(60rem, 100% - 3rem);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      background: var(--bg) radial-gradient(rgba(23, 69, 143, 0.07) 1px, transparent 1px) 0 0 / 22px 22px;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      min-height: 100svh;
+      margin: 0;
+      overflow-x: hidden;
+      font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--ink);
+    }
+
+    /* Soft blue and gold glows behind the content */
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      z-index: -1;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    body::before {
+      top: -30vmax;
+      right: -25vmax;
+      width: 75vmax;
+      height: 75vmax;
+      background: radial-gradient(closest-side, rgba(0, 103, 200, 0.22), transparent);
+    }
+    body::after {
+      bottom: -30vmax;
+      left: -25vmax;
+      width: 65vmax;
+      height: 65vmax;
+      background: radial-gradient(closest-side, rgba(247, 168, 27, 0.26), transparent);
+    }
+
+    a { color: var(--blue); }
+    :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+
+    main { flex: 1; width: var(--page); margin-inline: auto; padding-block: 2.5rem 3rem; }
+
+    .back { display: inline-flex; align-items: center; gap: 0.375rem; font-size: 0.9375rem; font-weight: 600; text-decoration: none; }
+    .back:hover { text-decoration: underline; }
+
+    .accent { width: 4.5rem; height: 0.375rem; margin: 1.5rem 0 1.25rem; border-radius: 999px; background: var(--gold); }
+    h1 {
+      max-width: 18ch;
+      margin: 0;
+      font-size: clamp(2.25rem, 1.6rem + 2.6vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+      color: var(--blue);
+      text-wrap: balance;
+    }
+    .when { margin: 1rem 0 0; font-size: clamp(1.0625rem, 1rem + 0.4vw, 1.25rem); font-weight: 700; }
+    .lead { max-width: 42rem; margin: 0.75rem 0 0; color: var(--muted); }
+
+    .layout { display: grid; grid-template-columns: minmax(0, 20rem) minmax(0, 1fr); gap: 2rem; align-items: start; margin-top: 2rem; }
+
+    .poster { display: block; width: 100%; height: auto; border-radius: 1rem; box-shadow: 0 14px 36px -14px rgba(15, 31, 61, 0.5); }
+
+    .panel {
+      padding: 1.5rem;
+      background: var(--card);
+      border: 1px solid rgba(23, 69, 143, 0.1);
+      border-radius: 1.25rem;
+      box-shadow: 0 1px 2px rgba(15, 31, 61, 0.04), 0 16px 36px -16px rgba(15, 31, 61, 0.2);
+    }
+    .panel h2 { margin: 0 0 0.75rem; font-size: 1.1875rem; color: var(--blue); }
+    .facts { margin: 0; padding: 0; list-style: none; }
+    .facts div { display: flex; gap: 0.75rem; padding: 0.625rem 0; border-top: 1px solid rgba(23, 69, 143, 0.1); }
+    .facts div:first-of-type { border-top: 0; padding-top: 0; }
+    .facts dt { flex: none; width: 7.5rem; font-weight: 700; font-size: 0.875rem; color: var(--muted); }
+    .facts dd { margin: 0; font-size: 0.9375rem; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+      padding: 0.95rem 1.6rem;
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      background: var(--blue);
+      border-radius: 999px;
+      box-shadow: 0 10px 24px -10px rgba(23, 69, 143, 0.6);
+      transition: background-color 0.2s, box-shadow 0.2s;
+    }
+    .btn span { transition: transform 0.2s; }
+    .btn:hover { background: var(--azure); box-shadow: 0 14px 28px -12px rgba(0, 103, 200, 0.6); }
+    .btn:hover span { transform: translateX(3px); }
+    .btn-note { margin: 0.625rem 0 0; font-size: 0.875rem; color: var(--muted); }
+
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem 1.5rem;
+      width: var(--page);
+      margin-inline: auto;
+      padding-bottom: 2.5rem;
+    }
+    footer img { display: block; width: auto; height: 3rem; }
+    .contact { margin: 0 0 0 auto; font-size: 0.9375rem; color: var(--muted); text-align: right; }
+    .contact a { font-weight: 600; text-decoration: none; overflow-wrap: anywhere; }
+    .contact a:hover { text-decoration: underline; }
+
+    @media (max-width: 48rem) {
+      .layout { grid-template-columns: 1fr; }
+      .poster { max-width: 22rem; margin-inline: auto; }
+      .contact { font-size: 0.8125rem; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="../index.html"><span aria-hidden="true">‹</span> Bursa Nilüfer Rotary Kulübü</a>
+
+    <div class="accent" aria-hidden="true"></div>
+    <h1>RYLA: Geleceğin Gıdası</h1>
+    <p class="when">7-8 Kasım 2026 · Euro Park Otel, Bursa</p>
+    <p class="lead">Rotary'nin gençlik liderliği programı RYLA kapsamında, daha sürdürülebilir bir yarın için düzenlediğimiz konferansa katılın.</p>
+
+    <div class="layout">
+      <img class="poster" src="../ryla-2026.jpg" alt="RYLA Geleceğin Gıdası afişi: daha sürdürülebilir bir yarın için, 7-8 Kasım 2026, Euro Park Otel, Bursa" width="593" height="900">
+
+      <div class="panel">
+        <h2>Katılım Bilgileri</h2>
+        <dl class="facts">
+          <div>
+            <dt>Tarih</dt>
+            <dd>7-8 Kasım 2026</dd>
+          </div>
+          <div>
+            <dt>Yer</dt>
+            <dd>Euro Park Otel, Bursa</dd>
+          </div>
+          <div>
+            <dt>Katılım bedeli</dt>
+            <dd>2 kişilik odada kişi başı (tam pansiyon) 7.000 TL</dd>
+          </div>
+          <div>
+            <dt>Kayıt</dt>
+            <dd>Kayıt formunu doldurun, katılım bedelini yatırın ve dekont ile nüfus cüzdanı fotokopinizi forma yükleyin.</dd>
+          </div>
+        </dl>
+
+        <a class="btn" href="kayit.html">RYLA Kayıt Formu <span aria-hidden="true">→</span></a>
+        <p class="btn-note">Sorularınız için: <a href="mailto:komite@niluferrotaryburs.com">komite@niluferrotaryburs.com</a></p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <a href="../index.html"><img src="../RotaryMBS-Simple_CMYK-C.png" alt="Rotary – ana sayfaya dön" width="1774" height="667"></a>
+    <p class="contact">İletişim: <a href="mailto:komite@niluferrotaryburs.com">komite@niluferrotaryburs.com</a></p>
+  </footer>
+</body>
+</html>

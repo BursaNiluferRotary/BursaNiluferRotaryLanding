@@ -1,0 +1,590 @@
+{
+ "updated": "2026-09-28T18:54:15Z",
+ "events": [
+  {
+   "start": "2026-07-10",
+   "allDay": true,
+   "end": "2026-07-11",
+   "uid": "planlama-2026-001-20260710@erhunk",
+   "status": "CONFIRMED",
+   "summary": "Bursa Basın Toplantısı | Bölgesel Etkinlik"
+  },
+  {
+   "start": "2026-07-13T16:00:00Z",
+   "allDay": false,
+   "end": "2026-07-13T19:00:00Z",
+   "uid": "planlama-2026-002-20260713@erhunk",
+   "location": "Gastro Sanayi",
+   "status": "CONFIRMED",
+   "summary": "Gastro Sanayi | Kulüp Toplantı #1"
+  },
+  {
+   "start": "2026-07-18",
+   "allDay": true,
+   "end": "2026-07-19",
+   "uid": "planlama-2026-003-20260718@erhunk",
+   "status": "CONFIRMED",
+   "summary": "Anıtkabir Ziyareti | Bölgesel Etkinlik"
+  },
+  {
+   "start": "2026-07-27T16:30:00Z",
+   "allDay": false,
+   "end": "2026-07-27T19:00:00Z",
+   "uid": "1it9mo288k9d4e8j3e1l6c7r7m@google.com",
+   "location": "Çağrışan Et Mangal, Çağrışan, Eski Mudanya Cd. No:130, 16940 Mudanya/Bursa, Türkiye",
+   "status": "CONFIRMED",
+   "summary": "Nilüfer Rotary Viski Tadımı"
+  },
+  {
+   "start": "2026-08-03T16:00:00Z",
+   "allDay": false,
+   "end": "2026-08-03T19:00:00Z",
+   "uid": "planlama-2026-004-20260720@erhunk",
+   "location": "3 Mühendisler",
+   "status": "CONFIRMED",
+   "summary": "3 Mühendisler | Kulüp Toplantı #3"
+  },
+  {
+   "start": "2026-08-10T16:00:00Z",
+   "allDay": false,
+   "end": "2026-08-10T19:00:00Z",
+   "uid": "planlama-2026-007-20260810@erhunk",
+   "location": "KALDER",
+   "status": "CONFIRMED",
+   "summary": "KALDER | Kulüp Toplantı #5"
+  },
+  {
+   "start": "2026-08-15",
+   "allDay": true,
+   "end": "2026-08-16",
+   "uid": "planlama-2026-008-20260815@erhunk",
+   "status": "CONFIRMED",
+   "summary": "Kurumsal İletişim Semineri | Bölgesel Etkinlik"
+  },
+  {
+   "start": "2026-08-17T16:00:00Z",
+   "allDay": false,
+   "end": "2026-08-17T19:00:00Z",
+   "uid": "planlama-2026-009-20260817@erhunk",
+   "location": "İş Yeri Ziyareti",
+   "status": "CONFIRMED",
+   "summary": "İş Yeri Ziyareti | Kulüp Toplantı #6"
+  },
+  {
+   "start": "2026-08-24T16:00:00Z",
+   "allDay": false,
+   "end": "2026-08-24T19:00:00Z",
+   "uid": "planlama-2026-010-20260824@erhunk",
+   "location": "Gastro Sanayi",
+   "status": "CONFIRMED",
+   "summary": "Gastro Sanayi | Kulüp Toplantı #7"
+  },
+  {
+   "start": "2026-08-30",
+   "allDay": true,
+   "end": "2026-08-31",
+   "uid": "planlama-2026-011-20260830@erhunk",
+   "status": "CONFIRMED",
+   "summary": "Çanakkale Yüzme Yarışı | Bölgesel Etkinlik"
+  },
+  {
+   "start": "2026-09-07T16:00:00Z",
+   "allDay": false,
+   "end": "2026-09-07T19:00:00Z",
+   "uid": "planlama-2026-012-20260907@erhunk",
+   "location": "Gastro Sanayi",
+   "status": "CONFIRMED",
+   "summary": "Gastro Sanayi | Kulüp Toplantı #8"
+  },
+  {
+   "start": "2026-09-11T16:30:00Z",
+   "allDay": false,
+   "end": "2026-09-11T19:00:00Z",
+   "uid": "planlama-2026-013-20260911@erhunk",
+   "location": "Botanik Park Beceren Restaurant\nSehit Ogretmen Necmettin Yilmaz Cd. 3, 16150 Osmangazi Bursa, Türkiye",
+   "status": "CONFIRMED",
+   "summary": "Bursa'nın Kurtuluşu | Bölgesel Etkinlik & Toplantı #9"
+  },
+  {
+   "start": "2026-09-13",
+   "allDay": true,
+   "end": "2026-09-14",
+   "uid": "planlama-2026-014-20260914@erhunk",
+   "status": "CONFIRMED",
+   "summary": "Dünya Temizlik Haftası Etkinliği | Bölgesel Etkinlik & Toplantı #10"
+  },
+  {
+   "start": "2026-09-13",
+   "allDay": true,
+   "end": "2026-09-14",
+   "uid": "planlama-2026-016-20260924@erhunk",
+   "status": "CONFIRMED",
+   "summary": "Dünya Temiz Nehirler Günü | Bölgesel Etkinlik"
+  },
+  {
+   "start": "2026-09-20T07:00:00Z",
+   "allDay": false,
+   "end": "2026-09-20T10:00:00Z",
+   "uid": "6t6pnt989o1t1duhqvr8ssdg7n@google.com",
+   "location": "Gökhan Aperatif - Çınaraltı, İnkaya mahallesi no:165, İnkaya, 16375 Osmangazi̇/Bursa, Türkiye",
+   "status": "CONFIRMED",
+   "summary": "Nilüfer Ralli (Resmi Toplantı)"
+  },
+  {
+   "start": "2026-09-26",
+   "allDay": true,
+   "end": "2026-09-28",
+   "uid": "planlama-2026-017-20260926@erhunk",
+   "status": "CONFIRMED",
+   "summary": "Lokasyon Belirlenecektir | Kulüp Etkinliği"
+  },
+  {
+   "start": "2026-09-28T16:00:00Z",
+   "allDay": false,
+   "end": "2026-09-28T19:00:00Z",
+   "uid": "planlama-2026-018-20260928@erhunk",
+   "location": "hide coffee house, Cumhuriyet, yağmur(150) sokak ban64 sitesi a blok no. 4A/B, 16210 Ni̇lüfer/Bursa, Türkiye",
+   "status": "CONFIRMED",
+   "summary": "Nilüfer Rotary Buluşmaları | Kulüp Toplantı #12"
+  },
+  {
+   "start": "2026-10-05T16:00:00Z",
+   "allDay": false,
+   "end": "2026-10-05T19:00:00Z",
+   "uid": "planlama-2026-019-20261005@erhunk",
+   "location": "Gastro Sanayi",
+   "status": "CONFIRMED",
+   "summary": "Gastro Sanayi | Kulüp Toplantı #13"
+  },
+  {
+   "start": "2026-10-10",
+   "allDay": true,
+   "end": "2026-10-11",
+   "uid": "planlama-2026-020-20261010@erhunk",
+   "status": "CONFIRMED",
+   "summary": "Stratejik Planlama ve Liderlik Semineri | Bölgesel Etkinlik"
+  },
+  {
+   "start": "2026-10-11",
+   "allDay": true,
+   "end": "2026-10-12",
+   "uid": "planlama-2026-021-20261011@erhunk",
+   "status": "CONFIRMED",
+   "summary": "Mudanya Mütarekesi | Bölgesel Etkinlik"
+  },
+  {
+   "start": "2026-10-12T16:00:00Z",
+   "allDay": false,
+   "end": "2026-10-12T19:00:00Z",
+   "uid": "planlama-2026-022-20261012@erhunk",
+   "location": "İş Yeri Ziyareti",
+   "status": "CONFIRMED",
+   "summary": "İş Yeri Ziyareti | Kulüp Toplantı #14"
+  },
+  {
+   "start": "2026-10-19T16:00:00Z",
+   "allDay": false,
+   "end": "2026-10-19T19:00:00Z",
+   "uid": "planlama-2026-024-20261019@erhunk",
+   "location": "Nilüfer Rotary Buluşmaları",
+   "status": "CONFIRMED",
+   "summary": "Nilüfer Rotary Buluşmaları | Kulüp Toplantı #15"
+  },
+  {
+   "start": "2026-10-26T16:00:00Z",
+   "allDay": false,
+   "end": "2026-10-26T19:00:00Z",
+   "uid": "planlama-2026-025-20261026@erhunk",
+   "location": "Gastro Sanayi",
+   "status": "CONFIRMED",
+   "summary": "Gastro Sanayi | Kulüp Toplantı #16"
+  },
+  {
+   "start": "2026-11-02T16:00:00Z",
+   "allDay": false,
+   "end": "2026-11-02T19:00:00Z",
+   "uid": "planlama-2026-026-20261102@erhunk",
+   "location": "Kalder",
+   "status": "CONFIRMED",
+   "summary": "Kalder | Kulüp Toplantı #17"
+  },
+  {
+   "start": "2026-11-05",
+   "allDay": true,
+   "end": "2026-11-06",
+   "uid": "planlama-2026-027-20261105@erhunk",
+   "status": "CONFIRMED",
+   "summary": "Interact Day | Bölgesel Etkinlik"
+  },
+  {
+   "start": "2026-11-07",
+   "allDay": true,
+   "end": "2026-11-09",
+   "uid": "planlama-2026-023-20261016@erhunk",
+   "status": "CONFIRMED",
+   "summary": "Ryla | RYLA & Dünya Gıda Günü"
+  },
+  {
+   "start": "2026-11-10",
+   "allDay": true,
+   "end": "2026-11-11",
+   "uid": "planlama-2026-028-20261110@erhunk",
+   "status": "CONFIRMED",
+   "summary": "Atatürk'ü Anma Günü | Bölgesel Etkinlik & Toplantı #18"
+  },
+  {
+   "start": "2026-11-16T16:00:00Z",
+   "allDay": false,
+   "end": "2026-11-16T19:00:00Z",
+   "uid": "planlama-2026-029-20261116@erhunk",
+   "location": "Gastro Sanayi",
+   "status": "CONFIRMED",
+   "summary": "Gastro Sanayi | Kulüp Toplantı #19"
+  },
+  {
+   "start": "2026-11-23T16:00:00Z",
+   "allDay": false,
+   "end": "2026-11-23T19:00:00Z",
+   "uid": "planlama-2026-030-20261123@erhunk",
+   "location": "İş Yeri Ziyareti",
+   "status": "CONFIRMED",
+   "summary": "İş Yeri Ziyareti | Kulüp Toplantı #20"
+  },
+  {
+   "start": "2026-11-30T15:00:00Z",
+   "allDay": false,
+   "end": "2026-11-30T19:30:00Z",
+   "uid": "3eubivg8gqqi4no7aje5ugatii@google.com",
+   "location": "Gastro Sanayi, Minareliçavuş OSB, Atatürk Blv. No:2 /2 D:5, 16140 Ni̇lüfer/Bursa, Türkiye",
+   "status": "CONFIRMED",
+   "summary": "Nilüfer Rotary Kulübü Guvernör Ziyareti"
+  },
+  {
+   "start": "2026-12-05",
+   "allDay": true,
+   "end": "2026-12-06",
+   "uid": "planlama-2026-031-20261205@erhunk",
+   "status": "CONFIRMED",
+   "summary": "Dünya Toprak Günü | Bölgesel Etkinlik"
+  },
+  {
+   "start": "2026-12-07T16:00:00Z",
+   "allDay": false,
+   "end": "2026-12-07T19:00:00Z",
+   "uid": "planlama-2026-032-20261207@erhunk",
+   "location": "Gastro Sanayi",
+   "status": "CONFIRMED",
+   "summary": "Gastro Sanayi | Kulüp Toplantı #21"
+  },
+  {
+   "start": "2026-12-14T16:00:00Z",
+   "allDay": false,
+   "end": "2026-12-14T19:00:00Z",
+   "uid": "planlama-2026-033-20261214@erhunk",
+   "location": "Kalder",
+   "status": "CONFIRMED",
+   "summary": "Kalder | Kulüp Toplantı #22"
+  },
+  {
+   "start": "2026-12-20",
+   "allDay": true,
+   "end": "2026-12-21",
+   "uid": "planlama-2026-034-20261220@erhunk",
+   "status": "CONFIRMED",
+   "summary": "Sürdürülebilirlik & İklim Krizi Günü | Bölgesel Etkinlik"
+  },
+  {
+   "start": "2026-12-21T16:00:00Z",
+   "allDay": false,
+   "end": "2026-12-21T19:00:00Z",
+   "uid": "planlama-2026-035-20261221@erhunk",
+   "location": "Yılbaşı Yemeği",
+   "status": "CONFIRMED",
+   "summary": "Yılbaşı Yemeği | Kulüp Toplantı #23"
+  },
+  {
+   "start": "2027-01-04T16:00:00Z",
+   "allDay": false,
+   "end": "2027-01-04T19:00:00Z",
+   "uid": "planlama-2026-036-20270104@erhunk",
+   "location": "Kalder",
+   "status": "CONFIRMED",
+   "summary": "Kalder | Kulüp Toplantı #24"
+  },
+  {
+   "start": "2027-01-11T16:00:00Z",
+   "allDay": false,
+   "end": "2027-01-11T19:00:00Z",
+   "uid": "planlama-2026-037-20270111@erhunk",
+   "location": "Nilüfer Rotary Buluşmaları",
+   "status": "CONFIRMED",
+   "summary": "Nilüfer Rotary Buluşmaları | Kulüp Toplantı #25"
+  },
+  {
+   "start": "2027-01-16",
+   "allDay": true,
+   "end": "2027-01-18",
+   "uid": "planlama-2026-038-20270116@erhunk",
+   "status": "CONFIRMED",
+   "summary": "Yarıyıl Değerlendirme | Bölgesel Etkinlik"
+  },
+  {
+   "start": "2027-01-18",
+   "allDay": true,
+   "end": "2027-01-19",
+   "uid": "planlama-2026-039-20270118@erhunk",
+   "status": "CONFIRMED",
+   "summary": "Gastro Sanayi | Meslek Hizmetleri Ödül Gecesi #26"
+  },
+  {
+   "start": "2027-01-25T16:00:00Z",
+   "allDay": false,
+   "end": "2027-01-25T19:00:00Z",
+   "uid": "planlama-2026-040-20270125@erhunk",
+   "location": "Kalder",
+   "status": "CONFIRMED",
+   "summary": "Kalder | Kulüp Toplantı #27"
+  },
+  {
+   "start": "2027-01-30",
+   "allDay": true,
+   "end": "2027-02-01",
+   "uid": "planlama-2026-041-20270130@erhunk",
+   "status": "CONFIRMED",
+   "summary": "Gezi - Kapadokya veya Mardin | Kulüp Etkinliği"
+  },
+  {
+   "start": "2027-02-01T16:00:00Z",
+   "allDay": false,
+   "end": "2027-02-01T19:00:00Z",
+   "uid": "planlama-2026-042-20270201@erhunk",
+   "location": "Gastro Sanayi",
+   "status": "CONFIRMED",
+   "summary": "Gastro Sanayi | Kulüp Toplantı #28"
+  },
+  {
+   "start": "2027-02-05",
+   "allDay": true,
+   "end": "2027-02-08",
+   "uid": "planlama-2026-043-20270205@erhunk",
+   "status": "CONFIRMED",
+   "summary": "BÖGES | Bölgesel Etkinlik"
+  },
+  {
+   "start": "2027-02-15T16:00:00Z",
+   "allDay": false,
+   "end": "2027-02-15T19:00:00Z",
+   "uid": "planlama-2026-044-20270215@erhunk",
+   "location": "Dış Mekan",
+   "status": "CONFIRMED",
+   "summary": "Dış Mekan | Kulüp Toplantı & İftar #29"
+  },
+  {
+   "start": "2027-02-22T16:00:00Z",
+   "allDay": false,
+   "end": "2027-02-22T19:00:00Z",
+   "uid": "planlama-2026-045-20270222@erhunk",
+   "location": "Kalder",
+   "status": "CONFIRMED",
+   "summary": "Kalder | Kulüp Toplantı #30"
+  },
+  {
+   "start": "2027-02-23",
+   "allDay": true,
+   "end": "2027-02-24",
+   "uid": "planlama-2026-046-20270223@erhunk",
+   "status": "CONFIRMED",
+   "summary": "RotaryDay | Bölgesel Etkinlik"
+  },
+  {
+   "start": "2027-03-01T16:00:00Z",
+   "allDay": false,
+   "end": "2027-03-01T19:00:00Z",
+   "uid": "planlama-2026-047-20270301@erhunk",
+   "location": "Kalder",
+   "status": "CONFIRMED",
+   "summary": "Kalder | Kulüp Toplantı #31"
+  },
+  {
+   "start": "2027-03-13T16:00:00Z",
+   "allDay": false,
+   "end": "2027-03-13T19:00:00Z",
+   "uid": "planlama-2026-048-20270313@erhunk",
+   "location": "Rotaract Haftası",
+   "status": "CONFIRMED",
+   "summary": "Rotaract Haftası | Kulüp Toplantı"
+  },
+  {
+   "start": "2027-03-15",
+   "allDay": true,
+   "end": "2027-03-16",
+   "uid": "planlama-2026-049-20270315@erhunk",
+   "status": "CONFIRMED",
+   "summary": "Gastro Sanayi | Kuruluş Yıldönümü #32"
+  },
+  {
+   "start": "2027-03-22T16:00:00Z",
+   "allDay": false,
+   "end": "2027-03-22T19:00:00Z",
+   "uid": "planlama-2026-050-20270322@erhunk",
+   "location": "Gastro Sanayi",
+   "status": "CONFIRMED",
+   "summary": "Gastro Sanayi | Kulüp Toplantı #33"
+  },
+  {
+   "start": "2027-03-29T16:00:00Z",
+   "allDay": false,
+   "end": "2027-03-29T19:00:00Z",
+   "uid": "planlama-2026-051-20270329@erhunk",
+   "location": "Nilüfer Rotary Buluşmaları",
+   "status": "CONFIRMED",
+   "summary": "Nilüfer Rotary Buluşmaları | Kulüp Toplantı #34"
+  },
+  {
+   "start": "2027-04-01",
+   "allDay": true,
+   "end": "2027-04-05",
+   "uid": "planlama-2026-052-20270401@erhunk",
+   "status": "CONFIRMED",
+   "summary": "BES&Asamble | Bölgesel Etkinlik"
+  },
+  {
+   "start": "2027-04-05T16:00:00Z",
+   "allDay": false,
+   "end": "2027-04-05T19:00:00Z",
+   "uid": "planlama-2026-053-20270405@erhunk",
+   "location": "Gastro Sanayi",
+   "status": "CONFIRMED",
+   "summary": "Gastro Sanayi | Kulüp Toplantı #35"
+  },
+  {
+   "start": "2027-04-12T16:00:00Z",
+   "allDay": false,
+   "end": "2027-04-12T19:00:00Z",
+   "uid": "planlama-2026-054-20270412@erhunk",
+   "location": "Kalder",
+   "status": "CONFIRMED",
+   "summary": "Kalder | Kulüp Toplantı #36"
+  },
+  {
+   "start": "2027-04-19T16:00:00Z",
+   "allDay": false,
+   "end": "2027-04-19T19:00:00Z",
+   "uid": "planlama-2026-055-20270419@erhunk",
+   "location": "İş Yeri Ziyareti",
+   "status": "CONFIRMED",
+   "summary": "İş Yeri Ziyareti | Kulüp Toplantı #37"
+  },
+  {
+   "start": "2027-04-26T16:00:00Z",
+   "allDay": false,
+   "end": "2027-04-26T19:00:00Z",
+   "uid": "planlama-2026-056-20270426@erhunk",
+   "location": "Dış Mekan",
+   "status": "CONFIRMED",
+   "summary": "Dış Mekan | Kulüp Toplantı #38"
+  },
+  {
+   "start": "2027-05-03T16:00:00Z",
+   "allDay": false,
+   "end": "2027-05-03T19:00:00Z",
+   "uid": "planlama-2026-057-20270503@erhunk",
+   "location": "Gastro Sanayi",
+   "status": "CONFIRMED",
+   "summary": "Gastro Sanayi | Kulüp Toplantı #39"
+  },
+  {
+   "start": "2027-05-07",
+   "allDay": true,
+   "end": "2027-05-10",
+   "uid": "planlama-2026-058-20270507@erhunk",
+   "status": "CONFIRMED",
+   "summary": "Konferans 2027 | Bölgesel Etkinlik"
+  },
+  {
+   "start": "2027-05-10T16:00:00Z",
+   "allDay": false,
+   "end": "2027-05-10T19:00:00Z",
+   "uid": "planlama-2026-059-20270510@erhunk",
+   "location": "Dış Mekan",
+   "status": "CONFIRMED",
+   "summary": "Dış Mekan | Kulüp Toplantı #40"
+  },
+  {
+   "start": "2027-05-13",
+   "allDay": true,
+   "end": "2027-05-14",
+   "uid": "planlama-2026-060-20270513@erhunk",
+   "status": "CONFIRMED",
+   "summary": "BKKO Ödül Töreni | Proje"
+  },
+  {
+   "start": "2027-05-17",
+   "allDay": true,
+   "end": "2027-05-18",
+   "uid": "planlama-2026-061-20270517@erhunk",
+   "status": "CONFIRMED",
+   "summary": "Gençlik Festivali | Bölgesel Etkinlik & Toplantı #41"
+  },
+  {
+   "start": "2027-05-19",
+   "allDay": true,
+   "end": "2027-05-20",
+   "uid": "planlama-2026-062-20270519@erhunk",
+   "status": "CONFIRMED",
+   "summary": "19 Mayıs Atatürk'ü Anma Gençlik ve Spor Bayramı | Bölgesel Etkinlik"
+  },
+  {
+   "start": "2027-05-24T16:00:00Z",
+   "allDay": false,
+   "end": "2027-05-24T19:00:00Z",
+   "uid": "planlama-2026-063-20270524@erhunk",
+   "location": "Gastro Sanayi",
+   "status": "CONFIRMED",
+   "summary": "Gastro Sanayi | Kulüp Toplantı #42"
+  },
+  {
+   "start": "2027-05-31T16:00:00Z",
+   "allDay": false,
+   "end": "2027-05-31T19:00:00Z",
+   "uid": "planlama-2026-064-20270531@erhunk",
+   "location": "Kalder",
+   "status": "CONFIRMED",
+   "summary": "Kalder | Kulüp Toplantı #43"
+  },
+  {
+   "start": "2027-06-05",
+   "allDay": true,
+   "end": "2027-06-06",
+   "uid": "planlama-2026-065-20270605@erhunk",
+   "status": "CONFIRMED",
+   "summary": "Vakıf Ödenek Semineri | Bölgesel Etkinlik"
+  },
+  {
+   "start": "2027-06-14T16:00:00Z",
+   "allDay": false,
+   "end": "2027-06-14T19:00:00Z",
+   "uid": "planlama-2026-066-20270614@erhunk",
+   "location": "Devir Teslim",
+   "status": "CONFIRMED",
+   "summary": "Devir Teslim | Kulüp Toplantı #44"
+  },
+  {
+   "start": "2027-06-21T16:00:00Z",
+   "allDay": false,
+   "end": "2027-06-21T19:00:00Z",
+   "uid": "planlama-2026-067-20270621@erhunk",
+   "location": "Genel Kurul",
+   "status": "CONFIRMED",
+   "summary": "Genel Kurul | Kulüp Toplantı #45"
+  },
+  {
+   "start": "2027-06-26",
+   "allDay": true,
+   "end": "2027-06-27",
+   "uid": "planlama-2026-068-20270626@erhunk",
+   "status": "CONFIRMED",
+   "summary": "Bölge Devir Teslim | Bölgesel Etkinlik"
+  }
+ ]
+}

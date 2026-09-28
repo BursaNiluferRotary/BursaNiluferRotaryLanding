@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Teşekkürler | Bursa Nilüfer Rotary Kulübü</title>
+  <meta name="description" content="Formunuz başarıyla gönderildi.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#17458f">
+  <style>
+    /* Same light theme as the landing page (index.html) */
+    :root {
+      color-scheme: light;
+      --bg: #f6f8fc;
+      --text: #0f1f3d;
+      --muted: #56627a;
+      --border: #d5dbe4;
+      --accent: #17458f;  /* Rotary royal blue */
+      --gold: #f7a81b;    /* Rotary gold */
+      --ok: #52be78;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      background: var(--bg) radial-gradient(rgba(23, 69, 143, 0.07) 1px, transparent 1px) 0 0 / 22px 22px;
+    }
+
+    body {
+      display: flex;
+      min-height: 100vh;
+      min-height: 100svh;
+      margin: 0;
+      font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: min(34rem, 100% - 2.5rem);
+      margin: 0 auto;
+      padding: clamp(4rem, 14vh, 7.5rem) 0 3rem;
+      text-align: center;
+    }
+
+    .check { display: block; width: 5.5rem; height: 5.5rem; color: var(--ok); }
+
+    h1 {
+      margin: 2.25rem 0 0;
+      font-size: clamp(2.25rem, 1.75rem + 2vw, 3rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .lead { margin: 0.75rem 0 0; font-size: clamp(1.125rem, 1rem + 0.5vw, 1.3125rem); }
+
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.625rem;
+      margin-top: 2.75rem;
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .back svg { width: 0.75rem; height: 0.75rem; transition: transform 0.2s; }
+    .back:hover { color: var(--accent); }
+    .back:hover svg { transform: translateX(-3px); }
+
+    .contact {
+      margin: 1.5rem 0 0;
+      padding: 0.5rem 0.875rem;
+      font-size: 0.9375rem;
+      color: var(--muted);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    .contact a { font-weight: 700; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; }
+    .contact a:hover { text-decoration: underline; }
+
+    a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+
+    /* The circle and tick draw themselves in */
+    @media (prefers-reduced-motion: no-preference) {
+      .check circle { stroke-dasharray: 145; animation: draw-circle 0.6s ease-out both; }
+      .check path { stroke-dasharray: 40; animation: draw-tick 0.35s 0.45s ease-out both; }
+      h1, .lead, .back, .contact { animation: rise 0.6s 0.2s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+      .back, .contact { animation-delay: 0.35s; }
+    }
+    @keyframes draw-circle { from { stroke-dashoffset: 145; } }
+    @keyframes draw-tick { from { stroke-dashoffset: 40; } }
+    @keyframes rise { from { opacity: 0; transform: translateY(0.75rem); } }
+  </style>
+</head>
+<body>
+  <main>
+    <svg class="check" viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="25" cy="25" r="22.5" transform="rotate(-90 25 25)"/>
+      <path d="M16 25.5l6 6 12-12"/>
+    </svg>
+
+    <h1>Teşekkürler!</h1>
+    <p class="lead">Formunuz başarıyla gönderildi.</p>
+
+    <a class="back" href="index.html" id="geri">
+      <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 1.5L3.5 6 8 10.5"/></svg>
+      Önceki Sayfaya Dön
+    </a>
+
+    <p class="contact">İletişim: <a href="mailto:komite@niluferrotaryburs.com">komite@niluferrotaryburs.com</a></p>
+  </main>
+
+  <script>
+    // Go back when the visitor came from this site; otherwise the link opens the landing page
+    document.getElementById('geri').addEventListener('click', event => {
+      let sameSite = false;
+      try { sameSite = new URL(document.referrer).origin === location.origin; } catch {}
+      if (sameSite && history.length > 1) {
+        event.preventDefault();
+        history.back();
+      }
+    });
+  </script>
+</body>
+</html>
