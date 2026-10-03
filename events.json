@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-03T03:34:04Z",
+ "updated": "2026-10-03T19:33:54Z",
  "events": [
   {
    "start": "2026-07-10",
@@ -109,17 +109,17 @@
    "start": "2026-09-13",
    "allDay": true,
    "end": "2026-09-14",
-   "uid": "planlama-2026-016-20260924@erhunk",
+   "uid": "planlama-2026-014-20260914@erhunk",
    "status": "CONFIRMED",
-   "summary": "Dünya Temiz Nehirler Günü | Bölgesel Etkinlik"
+   "summary": "Dünya Temizlik Haftası Etkinliği | Bölgesel Etkinlik & Toplantı #10"
   },
   {
    "start": "2026-09-13",
    "allDay": true,
    "end": "2026-09-14",
-   "uid": "planlama-2026-014-20260914@erhunk",
+   "uid": "planlama-2026-016-20260924@erhunk",
    "status": "CONFIRMED",
-   "summary": "Dünya Temizlik Haftası Etkinliği | Bölgesel Etkinlik & Toplantı #10"
+   "summary": "Dünya Temiz Nehirler Günü | Bölgesel Etkinlik"
   },
   {
    "start": "2026-09-20T07:00:00Z",
