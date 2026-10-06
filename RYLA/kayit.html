@@ -133,6 +133,9 @@
     .choices { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
     .choices label { display: flex; align-items: center; gap: 0.5rem; margin: 0; font-weight: 400; }
     .choices input { margin: 0; accent-color: var(--accent); }
+    .choices.stacked { flex-direction: column; gap: 0.5rem; }
+    .choices.stacked label { align-items: flex-start; }
+    .choices.stacked input { margin-top: 0.3rem; }
 
     .section-title { grid-column: 1 / -1; margin: 0.75rem 0 -0.5rem; font-size: 0.9375rem; font-weight: 700; color: var(--accent); }
     .field-note { margin: 0.25rem 0 0; font-size: 0.8125rem; color: var(--muted); }
@@ -229,7 +232,7 @@
     <h1>Bursa Nilüfer Rotary Kulübü</h1>
     <p class="subtitle">RYLA Kayıt Formu</p>
     <p class="event">Geleceğin Gıdası · 7-8 Kasım 2026 · Euro Park Otel, Bursa</p>
-    <p class="intro">Kaydınızın tamamlanması için aşağıdaki bilgileri eksiksiz doldurmanız, katılım bedelini yatırmanız ve banka dekontunuz ile nüfus cüzdanı fotokopinizi bu form aracılığıyla iletmeniz gerekmektedir.</p>
+    <p class="intro">Kaydınızın tamamlanması için aşağıdaki bilgileri eksiksiz doldurmanız ve nüfus cüzdanı fotokopinizi bu form aracılığıyla iletmeniz gerekmektedir. Katılım bedelini kendiniz ödüyorsanız banka dekontunuzu da forma yükleyin.</p>
 
     <!-- Bank details and fee from the club's registration form -->
     <section class="payment" aria-labelledby="odeme-baslik">
@@ -238,7 +241,7 @@
       <p>Havalenin yapılacağı hesap: QNB Bank – Nilüfer Rotary Kulübü Derneği<br>
         <span class="iban">TR49 0011 1000 0000 0089 2916 18</span><br>
         Açıklama: Ryla Katılım Bedeli Bağışı</p>
-      <p class="hint">Havaleyi yaptıktan sonra dekontun okunur bir kopyasını aşağıdaki alana yükleyin.</p>
+      <p class="hint">Katılım bedelini kendiniz ödüyorsanız havaleyi yaptıktan sonra dekontun okunur bir kopyasını forma yükleyin. Bedeliniz bir sponsor ya da kurum tarafından karşılanıyorsa dekont yüklemeniz gerekmez; formda kısaca açıklamanız yeterlidir.</p>
     </section>
 
     <noscript><p class="notice form-error">Formu gönderebilmek için tarayıcınızda JavaScript'in açık olması gerekir.</p></noscript>
@@ -430,31 +433,44 @@
         <span class="field-error" hidden></span>
       </div>
 
-      <p class="section-title">Belgeler</p>
+      <p class="section-title">Ödeme ve Belgeler</p>
+      <p class="upload-note full" id="dosya-kurali">Belgeler PDF, JPG veya PNG biçiminde olmalı; her dosya en fazla 1 MB olabilir.</p>
 
-      <fieldset class="full">
-        <p class="upload-note" id="dosya-kurali">Belgeler PDF, JPG veya PNG biçiminde olmalı; her dosya en fazla 1 MB olabilir.</p>
-        <div class="uploads" style="margin-top: 0.75rem;">
-          <div class="field">
-            <label for="dekont">Banka Dekontu</label>
-            <div class="upload">
-              <input id="dekont" name="fi-file-banka_dekontu" type="file" accept=".pdf,.jpg,.jpeg,.png" required data-rule="dosya" aria-describedby="dosya-kurali dekont-bilgi">
-              <span class="upload-text" aria-hidden="true">Dosya seçin veya sürükleyin</span>
-              <span class="upload-hint" id="dekont-bilgi">Havalenin okunur bir kopyası</span>
-            </div>
-            <span class="field-error" hidden></span>
-          </div>
-          <div class="field">
-            <label for="kimlik">Nüfus Cüzdanı Fotokopisi</label>
-            <div class="upload">
-              <input id="kimlik" name="fi-file-kimlik_fotokopisi" type="file" accept=".pdf,.jpg,.jpeg,.png" required data-rule="dosya" aria-describedby="dosya-kurali kimlik-bilgi">
-              <span class="upload-text" aria-hidden="true">Dosya seçin veya sürükleyin</span>
-              <span class="upload-hint" id="kimlik-bilgi">Katılımcının kimlik belgesi</span>
-            </div>
-            <span class="field-error" hidden></span>
-          </div>
+      <!-- Most participants are sponsored: paying themselves asks for the receipt, otherwise a short explanation -->
+      <fieldset class="field full">
+        <legend>Katılım Bedeli</legend>
+        <div class="choices stacked">
+          <label><input type="radio" name="fi-radio-odeme_durumu" value="Kendim ödedim (dekont yüklendi)" required data-missing="Lütfen katılım bedeliyle ilgili seçeneklerden birini işaretleyin."> Katılım bedelini kendim ödedim; banka dekontunu yüklüyorum.</label>
+          <label><input type="radio" name="fi-radio-odeme_durumu" value="Dekont yüklenmedi (açıklama var)" required data-missing="Lütfen katılım bedeliyle ilgili seçeneklerden birini işaretleyin."> Dekont yüklemiyorum (ör. katılım bedelimi bir sponsor karşılıyor).</label>
         </div>
+        <span class="field-error" hidden></span>
       </fieldset>
+
+      <div class="field full" id="dekont-alani" hidden>
+        <label for="dekont">Banka Dekontu</label>
+        <div class="upload">
+          <input id="dekont" name="fi-file-banka_dekontu" type="file" accept=".pdf,.jpg,.jpeg,.png" required disabled data-rule="dosya" aria-describedby="dosya-kurali dekont-bilgi">
+          <span class="upload-text" aria-hidden="true">Dosya seçin veya sürükleyin</span>
+          <span class="upload-hint" id="dekont-bilgi">Havalenin okunur bir kopyası</span>
+        </div>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field full" id="dekont-aciklama-alani" hidden>
+        <label for="dekont-aciklama">Dekont Yüklememe Nedeniniz</label>
+        <textarea id="dekont-aciklama" name="fi-text-dekont_aciklama" rows="2" required disabled placeholder="Örn. Katılım bedelim okulum / bir Rotary kulübü / bir kurum tarafından karşılanıyor."></textarea>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field full">
+        <label for="kimlik">Nüfus Cüzdanı Fotokopisi</label>
+        <div class="upload">
+          <input id="kimlik" name="fi-file-kimlik_fotokopisi" type="file" accept=".pdf,.jpg,.jpeg,.png" required data-rule="dosya" aria-describedby="dosya-kurali kimlik-bilgi">
+          <span class="upload-text" aria-hidden="true">Dosya seçin veya sürükleyin</span>
+          <span class="upload-hint" id="kimlik-bilgi">Katılımcının kimlik belgesi</span>
+        </div>
+        <span class="field-error" hidden></span>
+      </div>
 
       <!-- Before going live: have this text reviewed by someone who knows KVKK -->
       <details class="kvkk full">
@@ -471,7 +487,7 @@
             <li>İletişim: adresiniz, posta kodunuz, şehriniz, e-posta adresiniz, cep telefonu ve varsa ev telefonu numaranız</li>
             <li>Eğitim ve mesleki bilgi: öğrenim gördüğünüz okul veya çalıştığınız işyeri</li>
             <li>Sağlık (özel nitelikli kişisel veri): kan grubunuz, varsa sağlık probleminiz ve sürekli kullandığınız ilaçlar</li>
-            <li>Finans: katılım bedelini yatırdığınıza dair banka dekontu</li>
+            <li>Finans: katılım bedelini kendiniz ödediyseniz banka dekontu; ödemediyseniz bunun nedenine ilişkin açıklamanız</li>
             <li>Diğer: hobileriniz ve giysi bedeniniz</li>
             <li>Görsel kayıtlar: yalnızca izin vermeniz hâlinde, etkinlik sırasında çekilen fotoğraf ve videolarda yer alan görüntünüz</li>
             <li>Üçüncü kişilere ait bilgiler: varsa annenizin ve babanızın adı ile cep telefonu numaraları, acil durumda ulaşılmasını istediğiniz kişinin adı ve telefon numarası, varsa Rotaryen yakınınızın adı soyadı ve kulübü</li>
@@ -546,7 +562,7 @@
         <legend>Kayıt Beyanı</legend>
         <label class="consent">
           <input type="checkbox" name="fi-checkbox-kayit_beyani" value="Evet" required data-missing="Formu gönderebilmek için kayıt beyanını onaylamanız gerekmektedir.">
-          <span>Bursa Nilüfer Rotary Kulübü tarafından düzenlenen RYLA “Geleceğin Gıdası” konferansına katılmak istiyorum. Bu form tarafımca doldurulmuş olup verdiğim bilgiler eksiksiz ve doğrudur. Katılım bedelini yatırdığımı ve dekontunu forma yüklediğimi beyan eder, konferans programına ve kurallarına uyacağımı taahhüt ederim.</span>
+          <span>Bursa Nilüfer Rotary Kulübü tarafından düzenlenen RYLA “Geleceğin Gıdası” konferansına katılmak istiyorum. Bu form tarafımca doldurulmuş olup katılım bedeline ilişkin bilgi de dahil olmak üzere verdiğim bilgiler eksiksiz ve doğrudur. Konferans programına ve kurallarına uyacağımı taahhüt ederim.</span>
         </label>
         <span class="field-error" hidden></span>
       </fieldset>
@@ -739,6 +755,26 @@
       };
       form.querySelectorAll('[name="fi-radio-durum"]').forEach(radio => radio.addEventListener('change', syncStatus));
       syncStatus();
+
+      // Paying themselves asks for the bank receipt; otherwise a short explanation instead
+      const PAID_SELF = 'Kendim ödedim (dekont yüklendi)';
+      const NO_RECEIPT = 'Dekont yüklenmedi (açıklama var)';
+      const syncPayment = () => {
+        const answer = form.querySelector('[name="fi-radio-odeme_durumu"]:checked')?.value;
+        [['dekont-alani', PAID_SELF], ['dekont-aciklama-alani', NO_RECEIPT]].forEach(([id, value]) => {
+          const field = document.getElementById(id);
+          const control = field.querySelector('input, textarea');
+          const shown = answer === value;
+          field.hidden = !shown;
+          control.disabled = !shown; // disabled fields are neither validated nor sent
+          if (!shown) {
+            field.querySelector('.field-error').hidden = true;
+            control.removeAttribute('aria-invalid');
+          }
+        });
+      };
+      form.querySelectorAll('[name="fi-radio-odeme_durumu"]').forEach(radio => radio.addEventListener('change', syncPayment));
+      syncPayment();
 
       // Upload areas: show the chosen file and highlight while dragging
       form.querySelectorAll('.upload').forEach(zone => {
