@@ -104,6 +104,8 @@
     .facts div:first-of-type { border-top: 0; padding-top: 0; }
     .facts dt { flex: none; width: 7.5rem; font-weight: 700; font-size: 0.875rem; color: var(--muted); }
     .facts dd { margin: 0; font-size: 0.9375rem; }
+    .facts .iban { font-weight: 700; letter-spacing: 0.01em; overflow-wrap: anywhere; }
+    .facts .dd-note { display: block; margin-top: 0.25rem; font-size: 0.8125rem; color: var(--muted); }
 
     .btn {
       display: inline-flex;
@@ -171,11 +173,17 @@
           </div>
           <div>
             <dt>Katılım bedeli</dt>
-            <dd>2 kişilik odada kişi başı (tam pansiyon) 7.000 TL</dd>
+            <dd>2 kişilik odada kişi başı (tam pansiyon) 7.000 TL<span class="dd-note">Katılım bedeli sponsorlar tarafından karşılanır.</span></dd>
+          </div>
+          <div>
+            <dt>Sponsorlar İçin Ödeme Bilgileri</dt>
+            <dd>QNB Bank – Nilüfer Rotary Kulübü Derneği<br>
+              <span class="iban">TR49 0011 1000 0000 0089 2916 18</span><br>
+              Açıklama: Ryla Katılım Bedeli Bağışı</dd>
           </div>
           <div>
             <dt>Kayıt</dt>
-            <dd>Kayıt formunu doldurun ve nüfus cüzdanı fotokopinizi forma yükleyin. Katılım bedelini kendiniz ödüyorsanız banka dekontunu da ekleyin; bedeliniz bir sponsor tarafından karşılanıyorsa formda kısaca belirtmeniz yeterlidir.</dd>
+            <dd>Kayıt formunu doldurun ve nüfus cüzdanı fotokopinizi forma yükleyin. Katılım bedelinizi kimin karşıladığını biliyorsanız formda belirtin.</dd>
           </div>
         </dl>
 
