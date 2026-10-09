@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-07T15:39:49Z",
+ "updated": "2026-10-09T15:30:23Z",
  "events": [
   {
    "start": "2026-07-10",
@@ -109,17 +109,17 @@
    "start": "2026-09-13",
    "allDay": true,
    "end": "2026-09-14",
-   "uid": "planlama-2026-014-20260914@erhunk",
+   "uid": "planlama-2026-016-20260924@erhunk",
    "status": "CONFIRMED",
-   "summary": "Dünya Temizlik Haftası Etkinliği | Bölgesel Etkinlik & Toplantı #10"
+   "summary": "Dünya Temiz Nehirler Günü | Bölgesel Etkinlik"
   },
   {
    "start": "2026-09-13",
    "allDay": true,
    "end": "2026-09-14",
-   "uid": "planlama-2026-016-20260924@erhunk",
+   "uid": "planlama-2026-014-20260914@erhunk",
    "status": "CONFIRMED",
-   "summary": "Dünya Temiz Nehirler Günü | Bölgesel Etkinlik"
+   "summary": "Dünya Temizlik Haftası Etkinliği | Bölgesel Etkinlik & Toplantı #10"
   },
   {
    "start": "2026-09-20T07:00:00Z",
@@ -178,9 +178,9 @@
    "allDay": false,
    "end": "2026-10-12T19:00:00Z",
    "uid": "planlama-2026-022-20261012@erhunk",
-   "location": "İş Yeri Ziyareti",
+   "location": "Çağrışan Restaurant Et Mangal\nMudanya Cd. 130, 16940 Mudanya Bursa, Türkiye",
    "status": "CONFIRMED",
-   "summary": "İş Yeri Ziyareti | Kulüp Toplantı #14"
+   "summary": "Çağrışan Üst Kat | Kulüp Toplantı #14"
   },
   {
    "start": "2026-10-19T16:00:00Z",
