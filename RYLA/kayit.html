@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bursa Nilüfer Rotary Kulübü | RYLA Kayıt Formu</title>
-  <meta name="description" content="RYLA “Geleceğin Gıdası” konferansı kayıt formu: 7-8 Kasım 2026, Euro Park Otel, Bursa.">
+  <title>Bursa Nilüfer Rotary Kulübü | RYLA Başvuru Formu</title>
+  <meta name="description" content="RYLA “Geleceğin Gıdası” konferansı başvuru formu: 7-8 Kasım 2026, Euro Park Otel, Bursa.">
   <style>
     /* Same light theme as the landing page (index.html) */
     :root {
@@ -73,6 +73,21 @@
     .subtitle { margin: 0.75rem 0 0; font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem); font-weight: 500; }
     .event { margin: 0.25rem 0 1.25rem; font-weight: 600; color: var(--accent); }
     .intro { margin: 0 0 2rem; color: var(--muted); }
+
+    /* Welcome letter */
+    .letter {
+      margin: 0 0 1.5rem;
+      padding: 1.5rem 1.5rem 1.25rem;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(23, 69, 143, 0.1);
+      border-radius: 1.25rem;
+      box-shadow: 0 1px 2px rgba(15, 31, 61, 0.04), 0 16px 36px -16px rgba(15, 31, 61, 0.2);
+    }
+    .letter-theme { margin: 0 0 0.875rem; font-weight: 700; font-style: italic; color: var(--accent); }
+    .letter h2 { margin: 0 0 0.5rem; font-size: 1.125rem; }
+    .letter p { margin: 0 0 0.75rem; }
+    .letter-sign { color: var(--muted); }
+    .letter-note { margin: 0 !important; padding-top: 0.75rem; border-top: 1px solid var(--border); font-size: 0.9375rem; color: var(--muted); }
     .intro a { font-weight: 600; color: var(--accent); }
 
 
@@ -214,9 +229,20 @@
   <main>
     <div class="accent" aria-hidden="true"></div>
     <h1>Bursa Nilüfer Rotary Kulübü</h1>
-    <p class="subtitle">RYLA Kayıt Formu</p>
+    <p class="subtitle">RYLA Başvuru Formu</p>
     <p class="event">Geleceğin Gıdası · 7-8 Kasım 2026 · Euro Park Otel, Bursa</p>
-    <p class="intro">Kaydınızın tamamlanması için aşağıdaki bilgileri eksiksiz doldurmanız ve nüfus cüzdanı fotokopinizi bu form aracılığıyla iletmeniz gerekmektedir. Katılım bedeli ve ödeme bilgileri için <a href="./">RYLA sayfasına</a> bakabilirsiniz.</p>
+    <!-- Welcome letter, adapted from the club's RYLA 2026 application form -->
+    <section class="letter" aria-labelledby="mektup-baslik">
+      <h2 id="mektup-baslik">Sevgili RYLA Adayı,</h2>
+      <p>Öncelikle Rotary Youth Leadership Awards (RYLA) programına gösterdiğin ilgi için teşekkür ederiz.</p>
+      <p>RYLA, yalnızca bir eğitim programı değil; kendini keşfedeceğin, farklı bakış açılarıyla tanışacağın, yeni dostluklar kuracağın, birlikte düşünmenin ve üretmenin gücünü deneyimleyeceğin özel bir liderlik yolculuğudur.</p>
+      <p>Bu yıl 7–8 Kasım 2026 tarihlerinde “Geleceğin Gıdası” temasıyla gerçekleştireceğimiz RYLA programımızda; çevre, temiz ve güvenilir gıda, doğal kaynakların korunması, sürdürülebilir üretim ve tüketim ile yaşanabilir bir gelecek konularını birlikte ele alacağız.</p>
+      <p>Programda alanında uzman konuşmacılarla buluşacak; takım çalışmaları, etkileşimli uygulamalar ve farklı deneyimlerle liderlik becerilerini geliştirme fırsatı bulacaksın. Bu iki gün boyunca senden her şeyi bilmeni değil; merak etmeni, sorgulamanı, farklı fikirlere açık olmanı, düşüncelerini paylaşmanı ve birlikte çözüm üretmeni bekliyoruz.</p>
+      <p class="letter-sign">Sevgi ve saygılarımızla,<br><strong>Bursa Nilüfer Rotary Kulübü</strong></p>
+      <p class="letter-note">Başvuruların değerlendirilmesinin ardından kesin kayıt hakkı kazanan katılımcılarla iletişime geçilecek; program yeri, ulaşım, konaklama ve diğer organizasyon detayları ayrıca paylaşılacaktır.</p>
+    </section>
+
+    <p class="intro">Başvurunuzun tamamlanması için aşağıdaki bilgileri eksiksiz doldurmanız ve nüfus cüzdanı fotokopinizi bu form aracılığıyla iletmeniz gerekmektedir. Katılım bedeli ve ödeme bilgileri için <a href="./">RYLA sayfasına</a> bakabilirsiniz.</p>
 
     <noscript><p class="notice form-error">Formu gönderebilmek için tarayıcınızda JavaScript'in açık olması gerekir.</p></noscript>
 
@@ -271,6 +297,7 @@
       <fieldset class="field">
         <legend>Bedeniniz</legend>
         <div class="choices">
+          <label><input type="radio" name="fi-radio-beden" value="S" required> S</label>
           <label><input type="radio" name="fi-radio-beden" value="M" required> M</label>
           <label><input type="radio" name="fi-radio-beden" value="L" required> L</label>
           <label><input type="radio" name="fi-radio-beden" value="XL" required> XL</label>
@@ -325,21 +352,115 @@
       </fieldset>
 
       <div class="field full" id="okul-alani" hidden>
-        <label for="okul">Okulunuz</label>
-        <input id="okul" name="fi-text-okul" type="text" placeholder="Okulunuzun ve bölümünüzün adı" required disabled>
+        <label for="okul">Okulunuz, Bölümünüz ve Sınıfınız</label>
+        <input id="okul" name="fi-text-okul" type="text" placeholder="Örn. Bursa Uludağ Üniversitesi, Gıda Mühendisliği, 3. sınıf" required disabled>
         <span class="field-error" hidden></span>
       </div>
 
       <div class="field full" id="isyeri-alani" hidden>
-        <label for="isyeri">İşyeriniz</label>
-        <input id="isyeri" name="fi-text-isyeri" type="text" placeholder="Çalıştığınız kurumun adı" required disabled>
+        <label for="isyeri">Mezun Olduğunuz Okul ve Bölüm, Mesleğiniz</label>
+        <input id="isyeri" name="fi-text-isyeri" type="text" placeholder="Örn. Bursa Uludağ Üniversitesi İşletme; satış uzmanı, ... firması" required disabled>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <p class="section-title">Deneyim ve Beklentiler</p>
+
+      <div class="field full">
+        <label for="stk">Herhangi bir sivil toplum kuruluşunda veya gönüllü projede yer aldınız mı? Evetse kısaca anlatın.</label>
+        <textarea id="stk" name="fi-text-stk_deneyimi" rows="2" required placeholder="Yer almadıysanız “Hayır” yazabilirsiniz."></textarea>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field full">
+        <label for="liderlik-deneyimi">Liderlik deneyiminiz var mı? (Örn. kulüp başkanlığı, proje yönetimi, ekip çalışmaları)</label>
+        <textarea id="liderlik-deneyimi" name="fi-text-liderlik_deneyimi" rows="2" required></textarea>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field full">
+        <label for="neden-ryla">Neden RYLA programına katılmak istiyorsunuz? Beklentileriniz nelerdir?</label>
+        <textarea id="neden-ryla" name="fi-text-neden_ryla" rows="3" required></textarea>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field full">
+        <label for="meslek-motivasyonu">Meslek seçiminizi yaparken sizi ne motive etti?</label>
+        <textarea id="meslek-motivasyonu" name="fi-text-meslek_motivasyonu" rows="2" required></textarea>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field full">
+        <label for="onceki-ryla">Daha önce RYLA'ya katıldınız mı? Katıldıysanız hangilerine?</label>
+        <textarea id="onceki-ryla" name="fi-text-onceki_ryla" rows="2" required placeholder="Katılmadıysanız “Hayır” yazabilirsiniz."></textarea>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <p class="section-title">Sizi Tanıyalım</p>
+
+      <div class="field full">
+        <label for="liderlik-anlami">Sizce liderlik kelimesi ne ifade ediyor?</label>
+        <textarea id="liderlik-anlami" name="fi-text-liderlik_anlami" rows="2" required></textarea>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field full">
+        <label for="gida-reformu">Dünyada olmayan, gıdaya dair bir reform yapacak olsanız hangi konu üzerine olurdu? Neden?</label>
+        <textarea id="gida-reformu" name="fi-text-gida_reformu" rows="2" required></textarea>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field full">
+        <label for="ciftci">Bir çiftçi olsaydınız neyi farklı yapardınız?</label>
+        <textarea id="ciftci" name="fi-text-ciftci_olsaydiniz" rows="2" required></textarea>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field full">
+        <label for="cocukluk-oyunlari">Çocukluğunuzda en çok hangi oyunları oynamayı severdiniz?</label>
+        <textarea id="cocukluk-oyunlari" name="fi-text-cocukluk_oyunlari" rows="2" required></textarea>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field full">
+        <label for="aliskanlik">Değiştirmek istediğiniz bir alışkanlığınız var mı?</label>
+        <textarea id="aliskanlik" name="fi-text-aliskanlik" rows="2" required></textarea>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field full">
+        <label for="ulke">En çok görmek istediğiniz ülke hangisi? Neden?</label>
+        <textarea id="ulke" name="fi-text-gormek_istenen_ulke" rows="2" required></textarea>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field">
+        <label for="hobiler">Hobileriniz ya da ilgilendiğiniz bir spor</label>
+        <input id="hobiler" name="fi-text-hobiler" type="text" required>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field">
+        <label for="muzik">Hangi tarz müziklerden hoşlanırsınız?</label>
+        <input id="muzik" name="fi-text-muzik" type="text" required>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field full">
+        <label for="verimli-saatler">Günün hangi saatlerinde kendinizi daha keyifli ve verimli hissediyorsunuz?</label>
+        <input id="verimli-saatler" name="fi-text-verimli_saatler" type="text" required>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <div class="field full">
+        <label for="sosyal-medya">En sık kullandığınız sosyal medya araçları</label>
+        <input id="sosyal-medya" name="fi-text-sosyal_medya" type="text" required>
         <span class="field-error" hidden></span>
       </div>
 
       <p class="section-title">Sağlık bilgileriniz</p>
 
       <div class="field full">
-        <label for="saglik-problemi">Sağlık Probleminiz <span class="optional">(varsa)</span></label>
+        <label for="saglik-problemi">Sağlık Probleminiz ve Bir Risk Durumunda Yapmamız Gerekenler <span class="optional">(varsa)</span></label>
         <textarea id="saglik-problemi" name="fi-text-saglik_problemi" rows="2" aria-describedby="saglik-notu"></textarea>
         <p class="field-note" id="saglik-notu">Konferans süresince acil bir durumda gerekli tedbirlerin alınabilmesi için sorulmaktadır.</p>
         <span class="field-error" hidden></span>
@@ -352,8 +473,8 @@
       </div>
 
       <div class="field full">
-        <label for="hobiler">Hobileriniz <span class="optional">(varsa)</span></label>
-        <input id="hobiler" name="fi-text-hobiler" type="text">
+        <label for="alerji-beslenme">Alerjileriniz (ilaç, gıda, böcek vb.) ve Özel Beslenme Tercihiniz <span class="optional">(varsa)</span></label>
+        <textarea id="alerji-beslenme" name="fi-text-alerji_beslenme" rows="2"></textarea>
         <span class="field-error" hidden></span>
       </div>
 
@@ -397,7 +518,7 @@
 
       <div class="field">
         <label for="rotaryen">Rotaryen Yakınınız <span class="optional">(varsa)</span></label>
-        <input id="rotaryen" name="fi-text-rotaryen_yakini" type="text" placeholder="Adı soyadı" autocomplete="off">
+        <input id="rotaryen" name="fi-text-rotaryen_yakini" type="text" placeholder="Adı soyadı ve yakınlık derecesi" autocomplete="off">
         <span class="field-error" hidden></span>
       </div>
 
@@ -407,12 +528,28 @@
         <span class="field-error" hidden></span>
       </div>
 
+      <p class="section-title">Konaklama</p>
+
+      <div class="field full">
+        <label for="oda-paylasimi">Oda paylaşımında dikkat edilmesi gereken özel bir durumunuz var mı?</label>
+        <textarea id="oda-paylasimi" name="fi-text-oda_paylasimi" rows="2" required placeholder="Yoksa “Yok” yazabilirsiniz."></textarea>
+        <span class="field-error" hidden></span>
+      </div>
+
       <p class="section-title">Katılım Bedeli</p>
 
       <div class="field full">
         <label for="sponsor">Katılım Bedelinizi Kim Karşılıyor?</label>
         <textarea id="sponsor" name="fi-text-sponsor_bilgisi" rows="2" required data-missing="Lütfen katılım bedelinizi kimin karşıladığını yazın; bilmiyorsanız “Bilgim yok” yazın." aria-describedby="sponsor-notu" placeholder="Örn. ... Rotary Kulübü / Okulum (...) / ... firması / Şahıs (Ad Soyad)"></textarea>
         <p class="field-note" id="sponsor-notu">Katılım bedelinizin hangi kişi, kurum ya da kulüp sponsorluğunda karşılandığını biliyorsanız yazın; bilmiyorsanız “Bilgim yok” yazın.</p>
+        <span class="field-error" hidden></span>
+      </div>
+
+      <p class="section-title">Notlar</p>
+
+      <div class="field full">
+        <label for="notlar">Eklemek İstediğiniz Notlar <span class="optional">(varsa)</span></label>
+        <textarea id="notlar" name="fi-text-notlar" rows="2"></textarea>
         <span class="field-error" hidden></span>
       </div>
 
@@ -433,7 +570,7 @@
       <details class="kvkk full">
         <summary>KVKK Aydınlatma Metni (okumak için tıklayın)</summary>
         <div class="kvkk-text">
-          <p>Bursa Nilüfer Rotary Kulübü (“Kulüp”) olarak, 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) uyarınca veri sorumlusu sıfatıyla, RYLA kayıt formunda paylaştığınız kişisel verileri aşağıda açıklanan şekilde işliyoruz.</p>
+          <p>Bursa Nilüfer Rotary Kulübü (“Kulüp”) olarak, 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) uyarınca veri sorumlusu sıfatıyla, RYLA başvuru formunda paylaştığınız kişisel verileri aşağıda açıklanan şekilde işliyoruz.</p>
 
           <h2>1. Veri sorumlusu</h2>
           <p>Bursa Nilüfer Rotary Kulübü<br>Adres: Demirtaşpaşa Mah. İnönü Cad. No: 78 İç Kapı No: 3, Osmangazi/Bursa, Türkiye<br>E-posta: <a href="mailto:nilufer@niluferrotary.club">nilufer@niluferrotary.club</a></p>
@@ -443,9 +580,10 @@
             <li>Kimlik: adınız, soyadınız, cinsiyetiniz, doğum tarihiniz, nüfus cüzdanı fotokopiniz ve imzanız</li>
             <li>İletişim: adresiniz, posta kodunuz, şehriniz, e-posta adresiniz, cep telefonu ve varsa ev telefonu numaranız</li>
             <li>Eğitim ve mesleki bilgi: öğrenim gördüğünüz okul veya çalıştığınız işyeri</li>
-            <li>Sağlık (özel nitelikli kişisel veri): kan grubunuz, varsa sağlık probleminiz ve sürekli kullandığınız ilaçlar</li>
+            <li>Sağlık (özel nitelikli kişisel veri): kan grubunuz; varsa sağlık probleminiz, sürekli kullandığınız ilaçlar, alerjileriniz ve özel beslenme tercihiniz</li>
             <li>Katılım bedeli: bedelinizi kimin karşıladığına ilişkin verdiğiniz bilgi</li>
-            <li>Diğer: hobileriniz ve giysi bedeniniz</li>
+            <li>Deneyim ve görüşler: gönüllülük ve liderlik deneyimleriniz, daha önce katıldığınız RYLA programları, RYLA'dan beklentileriniz, form sorularına verdiğiniz yanıtlar, hobileriniz ve ilgi alanlarınız</li>
+            <li>Organizasyon: giysi bedeniniz, oda paylaşımına ilişkin özel durumunuz ve eklemek istediğiniz notlar</li>
             <li>Görsel kayıtlar: yalnızca izin vermeniz hâlinde, etkinlik sırasında çekilen fotoğraf ve videolarda yer alan görüntünüz</li>
             <li>Üçüncü kişilere ait bilgiler: varsa annenizin ve babanızın adı ile cep telefonu numaraları, acil durumda ulaşılmasını istediğiniz kişinin adı ve telefon numarası, varsa Rotaryen yakınınızın adı soyadı ve kulübü</li>
             <li>İşlem güvenliği ve teknik kayıtlar: formun gönderildiği zaman, IP adresi, tarayıcı bilgisi, yönlendiren sayfa, IP adresinden belirlenen yaklaşık konum (ülke ve şehir) ve sayfa bağlantısında yer alıyorsa kampanya parametreleri (ör. UTM)</li>
@@ -453,17 +591,17 @@
           <p>Anneniz, babanız, acil durumda ulaşılacak kişi ve Rotaryen yakınınıza ait bilgileri paylaşmadan önce bu kişileri bu metin hakkında bilgilendiriniz.</p>
 
           <h2>3. İşleme amaçları</h2>
-          <p>Kişisel verileriniz; RYLA konferansına kaydınızın alınması, konaklama ve organizasyonun planlanması, katılım bedelinin kimin tarafından karşılandığının takip edilmesi, konferansla ilgili sizinle iletişim kurulması ve Kulübün tabi olduğu mevzuattan doğan yükümlülüklerin yerine getirilmesi amaçlarıyla işlenir. Sağlık verileriniz ise yalnızca konferans süresince acil bir sağlık durumunda gerekli tedbirlerin alınması amacıyla işlenir. Etkinlik fotoğraf ve videolarında yer alan görüntünüz, yalnızca izin vermeniz hâlinde etkinliğin ve Kulüp faaliyetlerinin tanıtılması amacıyla işlenir.</p>
+          <p>Kişisel verileriniz; RYLA konferansına başvurunuzun alınması ve değerlendirilmesi, konaklama ve organizasyonun planlanması, katılım bedelinin kimin tarafından karşılandığının takip edilmesi, konferansla ilgili sizinle iletişim kurulması ve Kulübün tabi olduğu mevzuattan doğan yükümlülüklerin yerine getirilmesi amaçlarıyla işlenir. Sağlık verileriniz ise yalnızca konferans süresince acil bir sağlık durumunda gerekli tedbirlerin alınması amacıyla işlenir. Etkinlik fotoğraf ve videolarında yer alan görüntünüz, yalnızca izin vermeniz hâlinde etkinliğin ve Kulüp faaliyetlerinin tanıtılması amacıyla işlenir.</p>
 
           <h2>4. Toplama yöntemi ve hukuki sebep</h2>
-          <p>Kişisel verileriniz bu internet sitesindeki form aracılığıyla elektronik ortamda toplanır ve KVKK'nın 5. maddesinin 2. fıkrasında yer alan (c) bir sözleşmenin kurulması veya ifasıyla doğrudan doğruya ilgili olması, (ç) veri sorumlusunun hukuki yükümlülüğünü yerine getirebilmesi için zorunlu olması ve (f) temel hak ve özgürlüklerinize zarar vermemek kaydıyla Kulübün meşru menfaatleri için zorunlu olması hukuki sebeplerine dayanılarak işlenir. Özel nitelikli kişisel veri olan sağlık verilerinizin işlenmesi KVKK'nın 6. maddesinin 3. fıkrası, verilerinizin yurt dışına aktarılması ise KVKK'nın 9. maddesi uyarınca açık rızanıza dayanır. Etkinlik fotoğraf ve videolarının paylaşılması da KVKK'nın 5. maddesinin 1. fıkrası uyarınca açık rızanıza dayanır; bu izni vermemeniz kaydınızı etkilemez ve izninizi dilediğiniz zaman geri alabilirsiniz.</p>
+          <p>Kişisel verileriniz bu internet sitesindeki form aracılığıyla elektronik ortamda toplanır ve KVKK'nın 5. maddesinin 2. fıkrasında yer alan (c) bir sözleşmenin kurulması veya ifasıyla doğrudan doğruya ilgili olması, (ç) veri sorumlusunun hukuki yükümlülüğünü yerine getirebilmesi için zorunlu olması ve (f) temel hak ve özgürlüklerinize zarar vermemek kaydıyla Kulübün meşru menfaatleri için zorunlu olması hukuki sebeplerine dayanılarak işlenir. Özel nitelikli kişisel veri olan sağlık verilerinizin işlenmesi KVKK'nın 6. maddesinin 3. fıkrası, verilerinizin yurt dışına aktarılması ise KVKK'nın 9. maddesi uyarınca açık rızanıza dayanır. Etkinlik fotoğraf ve videolarının paylaşılması da KVKK'nın 5. maddesinin 1. fıkrası uyarınca açık rızanıza dayanır; bu izni vermemeniz başvurunuzu etkilemez ve izninizi dilediğiniz zaman geri alabilirsiniz.</p>
 
           <h2>5. Aktarım</h2>
           <p>Verilerinize yalnızca RYLA organizasyonunu yürüten yetkili Kulüp üyeleri erişir. Verileriniz, yukarıdaki amaçlarla sınırlı olarak konaklamanın sağlanması için etkinliğin yapılacağı otel ile, acil bir sağlık durumunda sağlık kuruluşları ve acil durumda ulaşılmasını istediğiniz kişi ile, talep edilmesi hâlinde ise yetkili kamu kurum ve kuruluşlarıyla paylaşılabilir. İzin vermeniz hâlinde etkinlik fotoğraf ve videoları, Kulübün sosyal medya hesaplarında (ör. Instagram – Meta Platforms, Inc., ABD) ve tanıtım materyallerinde paylaşılabilir.</p>
 
           <h2>6. Yurt dışına aktarım</h2>
-          <p>Formda paylaştığınız bilgiler ve yüklediğiniz belgeler, form altyapısını sağlayan Forminit (UXPLUS LTD, Birleşik Krallık) aracılığıyla işlenir ve Avrupa Birliği'nde (İrlanda) bulunan Amazon Web Services sunucularında şifrelenerek saklanır; ayrıca Kulübün e-posta hesabına bildirim olarak iletilebilir. Kaydınız, organizasyonun yürütülmesi için Forminit'ten Kulübün Google hesabına da aktarılır ve bilgileriniz ile belgeleriniz Google LLC (ABD) tarafından sağlanan Google Drive ve Google E-Tablolar hizmetlerinde saklanır. Google, bu verileri ABD başta olmak üzere farklı ülkelerdeki veri merkezlerinde tutabilir. Bu internet sitesi GitHub, Inc. (ABD) altyapısında barındırılır ve GitHub, siteyi ziyaret edenlerin IP adreslerini güvenlik amacıyla kaydeder.</p>
-          <p>Bu ülkelerde kişisel verilere Türkiye'deki ile aynı düzeyde koruma sağlanmayabilir. Aktarımın muhtemel riskleri arasında yabancı kamu makamlarının verilere erişebilmesi ve haklarınızı yurt dışındaki hizmet sağlayıcılara karşı kullanmanın daha zor olması yer alır. Açık rıza vermek istemezseniz kayıt bilgilerinizi ve belgelerinizi yukarıdaki Kulüp adresine elden teslim edebilirsiniz.</p>
+          <p>Formda paylaştığınız bilgiler ve yüklediğiniz belgeler, form altyapısını sağlayan Forminit (UXPLUS LTD, Birleşik Krallık) aracılığıyla işlenir ve Avrupa Birliği'nde (İrlanda) bulunan Amazon Web Services sunucularında şifrelenerek saklanır; ayrıca Kulübün e-posta hesabına bildirim olarak iletilebilir. Başvurunuz, organizasyonun yürütülmesi için Forminit'ten Kulübün Google hesabına da aktarılır ve bilgileriniz ile belgeleriniz Google LLC (ABD) tarafından sağlanan Google Drive ve Google E-Tablolar hizmetlerinde saklanır. Google, bu verileri ABD başta olmak üzere farklı ülkelerdeki veri merkezlerinde tutabilir. Bu internet sitesi GitHub, Inc. (ABD) altyapısında barındırılır ve GitHub, siteyi ziyaret edenlerin IP adreslerini güvenlik amacıyla kaydeder.</p>
+          <p>Bu ülkelerde kişisel verilere Türkiye'deki ile aynı düzeyde koruma sağlanmayabilir. Aktarımın muhtemel riskleri arasında yabancı kamu makamlarının verilere erişebilmesi ve haklarınızı yurt dışındaki hizmet sağlayıcılara karşı kullanmanın daha zor olması yer alır. Açık rıza vermek istemezseniz başvuru bilgilerinizi ve belgelerinizi yukarıdaki Kulüp adresine elden teslim edebilirsiniz.</p>
 
           <h2>7. Saklama süresi</h2>
           <p>Kişisel verileriniz, işleme amaçlarının gerektirdiği süre ve ilgili mevzuatta öngörülen saklama süreleri boyunca saklanır; bu sürelerin sonunda silinir, yok edilir veya anonim hâle getirilir.</p>
@@ -483,14 +621,14 @@
           </ul>
           <p>Başvurularınızı yazılı olarak yukarıdaki adrese veya bu formda bildirdiğiniz e-posta adresinizden <a href="mailto:nilufer@niluferrotary.club">nilufer@niluferrotary.club</a> adresine iletebilirsiniz. Başvurunuz en geç otuz gün içinde ücretsiz olarak sonuçlandırılır. Açık rızanızı dilediğiniz zaman aynı yollarla geri alabilirsiniz.</p>
 
-          <p class="updated">Son güncelleme: 7 Ekim 2026</p>
+          <p class="updated">Son güncelleme: 13 Ekim 2026</p>
         </div>
       </details>
 
       <div class="field full">
         <label class="consent">
           <input type="checkbox" name="fi-checkbox-kvkk_saglik_riza" value="Evet" required>
-          <span>Özel nitelikli kişisel veri olan sağlık verilerimin (kan grubum, sağlık problemim ve kullandığım ilaçlar), KVKK Aydınlatma Metni'nde belirtildiği şekilde konferans süresince acil durumlarda gerekli tedbirlerin alınması amacıyla işlenmesine açık rıza veriyorum.</span>
+          <span>Özel nitelikli kişisel veri olan sağlık verilerimin (kan grubum, sağlık problemim, kullandığım ilaçlar, alerjilerim ve beslenme tercihim), KVKK Aydınlatma Metni'nde belirtildiği şekilde konferans süresince acil durumlarda gerekli tedbirlerin alınması amacıyla işlenmesine açık rıza veriyorum.</span>
         </label>
         <span class="field-error" hidden></span>
       </div>
@@ -498,7 +636,7 @@
       <div class="field full">
         <label class="consent">
           <input type="checkbox" name="fi-checkbox-kvkk_acik_riza" value="Evet" required>
-          <span>KVKK Aydınlatma Metni'nde belirtilen muhtemel riskler hakkında bilgilendirilmiş olarak, formda paylaştığım kişisel verilerimin ve belgelerimin RYLA kayıt süreçlerinin yürütülmesi amacıyla başta Birleşik Krallık, Avrupa Birliği (İrlanda) ve Amerika Birleşik Devletleri olmak üzere yurt dışında bulunan hizmet sağlayıcılara aktarılmasına ve orada saklanmasına açık rıza veriyorum.</span>
+          <span>KVKK Aydınlatma Metni'nde belirtilen muhtemel riskler hakkında bilgilendirilmiş olarak, formda paylaştığım kişisel verilerimin ve belgelerimin RYLA başvuru süreçlerinin yürütülmesi amacıyla başta Birleşik Krallık, Avrupa Birliği (İrlanda) ve Amerika Birleşik Devletleri olmak üzere yurt dışında bulunan hizmet sağlayıcılara aktarılmasına ve orada saklanmasına açık rıza veriyorum.</span>
         </label>
         <span class="field-error" hidden></span>
       </div>
@@ -511,15 +649,15 @@
           <label><input type="radio" name="fi-radio-fotograf_izni" value="İzin veriyorum" required data-missing="Lütfen fotoğraf ve video paylaşımı için tercihinizi belirtin." aria-describedby="fotograf-izni-notu"> İzin veriyorum</label>
           <label><input type="radio" name="fi-radio-fotograf_izni" value="İzin vermiyorum" required data-missing="Lütfen fotoğraf ve video paylaşımı için tercihinizi belirtin." aria-describedby="fotograf-izni-notu"> İzin vermiyorum</label>
         </div>
-        <p class="field-note">İzin vermemeniz kaydınızı etkilemez.</p>
+        <p class="field-note">İzin vermemeniz başvurunuzu etkilemez.</p>
         <span class="field-error" hidden></span>
       </fieldset>
 
       <fieldset class="field full">
-        <legend>Kayıt Beyanı</legend>
+        <legend>Başvuru Beyanı</legend>
         <label class="consent">
-          <input type="checkbox" name="fi-checkbox-kayit_beyani" value="Evet" required data-missing="Formu gönderebilmek için kayıt beyanını onaylamanız gerekmektedir.">
-          <span>Bursa Nilüfer Rotary Kulübü tarafından düzenlenen RYLA “Geleceğin Gıdası” konferansına katılmak istiyorum. Bu form tarafımca doldurulmuş olup katılım bedeline ilişkin bilgi de dahil olmak üzere verdiğim bilgiler eksiksiz ve doğrudur. Konferans programına ve kurallarına uyacağımı taahhüt ederim.</span>
+          <input type="checkbox" name="fi-checkbox-kayit_beyani" value="Evet" required data-missing="Formu gönderebilmek için başvuru beyanını onaylamanız gerekmektedir.">
+          <span>Bursa Nilüfer Rotary Kulübü tarafından düzenlenen RYLA “Geleceğin Gıdası” konferansına katılmak istiyorum. Bu form tarafımca doldurulmuş olup katılım bedeline ilişkin bilgi de dahil olmak üzere verdiğim bilgiler eksiksiz ve doğrudur. Acil bir durum olmadığı sürece tüm oturum ve uygulamalara tam katılım sağlayacağımı, önemli bir neden olmadıkça otelde katılımcılarla birlikte konaklayacağımı ve konferans programına ve kurallarına uyacağımı taahhüt ederim.</span>
         </label>
         <span class="field-error" hidden></span>
       </fieldset>
@@ -737,8 +875,8 @@
         TOO_MANY_REQUESTS: 'Kısa süre içinde birden fazla gönderim yapıldı. Lütfen 30 saniye bekleyip tekrar deneyin.',
         FI_RULES_PHONE_INVALID: 'Telefon numarası kabul edilmedi. Lütfen kontrol edip tekrar deneyin.',
         FI_SCHEMA_FORMAT_EMAIL: 'E-posta adresi kabul edilmedi. Lütfen kontrol edip tekrar deneyin.',
-        LIMIT_EXPIRED: 'Form şu anda yeni kayıt kabul etmiyor. Lütfen Kulüp ile iletişime geçin.',
-        FORM_DISABLED: 'Form şu anda yeni kayıt kabul etmiyor. Lütfen Kulüp ile iletişime geçin.'
+        LIMIT_EXPIRED: 'Form şu anda yeni başvuru kabul etmiyor. Lütfen Kulüp ile iletişime geçin.',
+        FORM_DISABLED: 'Form şu anda yeni başvuru kabul etmiyor. Lütfen Kulüp ile iletişime geçin.'
       };
       // The SDK reports code 0 when the request got no answer at all (connection lost, unreadable file)
       const NETWORK_MESSAGE = 'Bağlantı sırasında bir sorun oluştu ve bilgileriniz gönderilemedi. Lütfen internet bağlantınızı kontrol edip (mümkünse Wi-Fi ile) tekrar deneyin. Sorun sürerse nilufer@niluferrotary.club adresine yazabilirsiniz.';
