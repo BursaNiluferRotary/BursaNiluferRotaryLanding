@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-19T08:50:54Z",
+ "updated": "2026-10-19T20:34:47Z",
  "events": [
   {
    "start": "2026-07-10",
@@ -285,6 +285,15 @@
    "location": "Kalder",
    "status": "CONFIRMED",
    "summary": "Kalder | Kulüp Toplantı #22"
+  },
+  {
+   "start": "2026-12-19",
+   "allDay": true,
+   "end": "2026-12-20",
+   "uid": "A448E93F-0158-415D-B8DD-E2070B528ED1",
+   "location": "KalDer Kalite Derneği Bursa Şubesi\nNilüfer Bursa, Türkiye",
+   "status": "CONFIRMED",
+   "summary": "Sürdürebilirlik Konferansı"
   },
   {
    "start": "2026-12-20",
