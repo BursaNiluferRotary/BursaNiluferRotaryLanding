@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-02T11:02:08Z",
+ "updated": "2026-11-02T23:06:37Z",
  "events": [
   {
    "start": "2026-07-10",
@@ -196,9 +196,9 @@
    "allDay": false,
    "end": "2026-11-02T19:00:00Z",
    "uid": "planlama-2026-026-20261102@erhunk",
-   "location": "Kalder",
+   "location": "Euro Park Hotel Bursa\nUniversite 1. Cd. 914, 16240 Nilüfer Bursa, Türkiye",
    "status": "CONFIRMED",
-   "summary": "Kalder | Kulüp Toplantı #17"
+   "summary": "Kulüp Toplantı #17"
   },
   {
    "start": "2026-11-05",
